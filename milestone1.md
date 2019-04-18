@@ -1,6 +1,6 @@
 Team Name: 
 
-Team Members: Emi Oda, 
+Team Members: Emi Oda, Matthias Baker, Natalia Ratosh, Kristen Randall
 
 
 At least a one-paragraph project proposal describing your team's project idea:
