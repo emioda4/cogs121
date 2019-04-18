@@ -1,7 +1,6 @@
 Team Name: 
 
-Team Members:
-Emi Oda
+Team Members: Emi Oda, 
 
 
 At least a one-paragraph project proposal describing your team's project idea:
