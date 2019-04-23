@@ -12,7 +12,7 @@ Storyboard 2:
 
 
 Prototype 1:
-
+![Prototype 1](prototype1.jpg)
 
 Prototype 2:
 ![Prototype 2](prototype2.jpg)
