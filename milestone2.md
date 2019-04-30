@@ -3,6 +3,8 @@ We are presenting the same idea as in milestone1.md since it was approved.
 
 
 UI skeletons:
+
+
 Tasks Page
 
 
