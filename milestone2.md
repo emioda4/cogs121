@@ -14,7 +14,7 @@ Tasks Page
 
 Rewards Page
 
-![Rewards Page](Rewards.JPG)
+![Rewards Page](rewards.JPG)
 
 
 
