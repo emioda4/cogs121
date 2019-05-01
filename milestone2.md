@@ -5,27 +5,27 @@ UI skeletons:
 
 Home Page
 
-<img src=HomeWithLogin.PNG width="750" height="750" />
+<img src=HomeWithLogin.PNG width="500" height="500" />
 
 How to Play Page
 
-![How To Play Page](howToPlay.jpg)
+<img src=howToPlay.jpg width="300" height="500" />
 
 Tasks Page
 
-![Tasks Page](TasksPage.jpg)
+<img src=TasksPage.jpg width="300" height="500" />
 
 Task 2 Page (example of a task)
 
-![Task Overview](task2.jpg)
+<img src=task2.jpg width="300" height="500" />
 
 Rewards Page
 
-![Rewards Page](rewards.JPG)
+<img src=rewards.JPG width="300" height="500" />
 
 Task Overview Page
 
-![Task Overview Page](Task_overview.jpg)
+<img src=task_overview.jpg width="300" height="500" />
 
 
 
