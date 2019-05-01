@@ -1,5 +1,5 @@
 // load JSON fake "database" file into the data variable
-var data = require('../data.json');
+//var data = require('../data.json');
 
 exports.home = function(req, res){
   res.render('home');
