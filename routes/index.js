@@ -16,3 +16,7 @@ exports.task2 = function(req, res){
 exports.tasks_page = function(req, res){
   res.render('tasks_page');
 };
+
+exports.howToPlay = function(req, res){
+  res.render('howToPlay');
+};
