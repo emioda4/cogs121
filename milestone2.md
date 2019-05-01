@@ -7,10 +7,17 @@ Home Page
 
 ![Home Page](HomeWithLogin.PNG)
 
+How to Play Page
+
+![How To Play Page](howToPlay.jpg)
+
 Tasks Page
 
-
 ![Tasks Page](TasksPage.jpg)
+
+Task 2 Page (example of a task)
+
+![Task Overview](task2.jpg)
 
 Rewards Page
 
