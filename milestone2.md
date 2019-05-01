@@ -4,8 +4,7 @@ We received great feedback from our TA on our idea for our app so we decided to 
 UI skeletons:
 
 Home Page
-
-![Home Page](HomeWithLogin.PNG)
+<img src=HomeWithLogin.PNG width="100" height="150" />
 
 How to Play Page
 
@@ -23,10 +22,7 @@ Rewards Page
 
 ![Rewards Page](rewards.JPG)
 
-
-
 Task Overview Page
-
 
 ![Task Overview Page](Task_overview.jpg)
 
