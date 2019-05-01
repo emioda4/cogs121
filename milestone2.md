@@ -25,6 +25,10 @@ Rewards Page
 
 
 
+Task Overview Page
+![Task Overview Page](Task_overview.JPG)
+
+
 
 Our pages correspond to paper prototype2.jpg from Milestone 1. 
 
