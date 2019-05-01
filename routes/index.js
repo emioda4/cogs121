@@ -20,3 +20,7 @@ exports.tasks_page = function(req, res){
 exports.howToPlay = function(req, res){
   res.render('howToPlay');
 };
+
+exports.rewards = function(req, res){
+  res.render('rewards');
+};

@@ -104,7 +104,7 @@ app.get('/task2', index.task2)
 app.get('/task_overview', index.task_overview)
 app.get('/tasks_page', index.tasks_page)
 app.get('/howToPlay', index.howToPlay)
-
+app.get('/rewards', index.rewards)
 
 
 // end of Emi's code
