@@ -4,7 +4,8 @@ We received great feedback from our TA on our idea for our app so we decided to 
 UI skeletons:
 
 Home Page
-<img src=HomeWithLogin.PNG width="100" height="150" />
+
+<img src=HomeWithLogin.PNG width="750" height="750" />
 
 How to Play Page
 
