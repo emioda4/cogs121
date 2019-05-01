@@ -3,6 +3,9 @@ We received great feedback from our TA on our idea for our app so we decided to 
 
 UI skeletons:
 
+Home Page
+
+![Home Page](HomePageWithLogin.PNG)
 
 Tasks Page
 
