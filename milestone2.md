@@ -5,7 +5,7 @@ UI skeletons:
 
 Home Page
 
-![Home Page](HomePageWithLogin.PNG)
+![Home Page](HomeWithLogin.PNG)
 
 Tasks Page
 
