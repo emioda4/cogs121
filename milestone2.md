@@ -26,7 +26,7 @@ Rewards Page
 
 
 Task Overview Page
-![Task Overview Page](Task_overview.JPG)
+![Task Overview Page](Task_overview.jpg)
 
 
 
