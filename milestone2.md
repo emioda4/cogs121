@@ -25,7 +25,7 @@ Rewards Page
 
 Task Overview Page
 
-<img src=task_overview.jpg width="300" height="500" />
+<img src=Task_overview.jpg width="300" height="500" />
 
 
 
