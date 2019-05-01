@@ -12,6 +12,10 @@ Tasks Page
 
 ![Tasks Page](TasksPage.jpg)
 
+Rewards Page
+
+![Rewards Page](Rewards.JPG)
+
 
 
 
