@@ -9,8 +9,8 @@ exports.task_overview = function(req, res){
   res.render('task_overview');
 };
 
-exports.task2 = function(req, res){
-  res.render('task2');
+exports.task1 = function(req, res){
+  res.render('task1');
 };
 
 exports.tasks_page = function(req, res){
@@ -23,4 +23,8 @@ exports.howToPlay = function(req, res){
 
 exports.rewards = function(req, res){
   res.render('rewards');
+};
+
+exports.tasks = function(req, res){
+  res.render('tasks');
 };
