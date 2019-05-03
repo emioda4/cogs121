@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
-    <script src="jquery-3.3.1.min.js"></script>
+<title>Home</title>
 
+<script src="jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-
+    
 $(document).ready(() => {
  $('#start-button').click(() => {
    //console.log('Debug Test Start Button');
@@ -19,11 +19,24 @@ $(document).ready(() => {
        }
    });
  });
+
+
+//Backend Data Request
+ $('#login-button').click(() => {
+   console.log('Debug Test login Button');
+   $.ajax({
+       url: 'login',
+       type: 'GET',
+       dataType: 'json',
+       success: (data) => {
+        //document.location.href =  'http://localhost:3000/Tasks_page.html'
+        $('#loginstatus').html('Logged in as ' + data.id + '. You are registered as a ' + data.role + '.');
+       }
+   });
+ });
 });
 
-
-
-    </script>
+</script>
 </head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,14 +48,20 @@ $(document).ready(() => {
             <h1>Diggers</h1>
         </div>          
         <div id="start-container">
-            <button onclick="window.location.href='tasks_page'" style="width:80px;height:50px;border:0;">Start</a>
+            <button onclick="window.location.href='task_overview'" style="width:80px;height:50px;border:0;">Start</a>
         </div>
-	<div id="rewards-container">
+        <div id="login-container">
+            <button id = "login-button" style="width:80px;height:50px;border:0;">Login</a>
+        </div>
+      <div id="rewards-container">
             <button onclick="window.location.href='rewards'" style="width:80px;height:50px;border:0;">Rewards</a>
         </div>
-	<div id="howTo-container">
+      <div id="howTo-container">
             <button onclick="window.location.href='howToPlay'" style="width:80px;height:50px;border:0;">How to Play</a>
         </div>
+    
+    <div id="loginstatus"></div>
+
     </center>
 </body>
 </html>

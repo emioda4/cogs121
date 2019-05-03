@@ -34,13 +34,8 @@ const index = require('./routes/index');
 // will send the file static_files/cat.jpg to the user's web browser
 //
 // Learn more: http://expressjs.com/en/starter/static-files.html
-app.use(express.static('static_files'));
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', handlebars());
-app.set('view engine', 'handlebars');
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('views'));
+
 
 // simulates a database in memory, to make this example simple and
 // self-contained (so that you don't need to set up a separate database).
@@ -54,6 +49,12 @@ const fakeDatabase = {
   'Carol': {job: 'engineer',  pet: 'bear.jpg'}
 };
 
+const ourFakeDatabase = {
+  'Matthias': {id: 'Matthias', role: 'Parent'},
+  'Kristen': {id: 'Kristen', role: 'Child'},
+  'Emi': {id: 'Emi', role: 'Child'},
+  'Natalia' : {id: 'Natalia', role: 'Parent'}
+};
 
 // To learn more about server routing:
 // Express - Hello world: http://expressjs.com/en/starter/hello-world.html
@@ -96,6 +97,23 @@ app.get('/Tasks_page', (req, res) => {
   res.send(pageName);
 });
 
+//Login Request
+app.get('/login', (req, res) => {
+  const allLogins = Object.keys(ourFakeDatabase);
+  let randomLoginID = Math.floor(Math.random()*allLogins.length); // returns a list of object keys
+  const usedLogin = allLogins[randomLoginID];
+  const loginToSend =  ourFakeDatabase[usedLogin];
+  console.log('attempting to send user: ' + loginToSend);
+  res.send(loginToSend);
+});
+
+// Emi's code below
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', handlebars());
+app.set('view engine', 'handlebars');
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.home)
 app.get('/task2', index.task2)
@@ -104,6 +122,8 @@ app.get('/tasks_page', index.tasks_page)
 app.get('/howToPlay', index.howToPlay)
 app.get('/rewards', index.rewards)
 
+
+// end of Emi's code
 
 // start the server at URL: http://localhost:3000/
 app.listen(3000, () => {
