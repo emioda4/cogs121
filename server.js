@@ -35,7 +35,12 @@ const index = require('./routes/index');
 //
 // Learn more: http://expressjs.com/en/starter/static-files.html
 app.use(express.static('static_files'));
-
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', handlebars());
+app.set('view engine', 'handlebars');
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // simulates a database in memory, to make this example simple and
 // self-contained (so that you don't need to set up a separate database).
@@ -91,13 +96,6 @@ app.get('/Tasks_page', (req, res) => {
   res.send(pageName);
 });
 
-// Emi's code below
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', handlebars());
-app.set('view engine', 'handlebars');
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.home)
 app.get('/task2', index.task2)
@@ -106,8 +104,6 @@ app.get('/tasks_page', index.tasks_page)
 app.get('/howToPlay', index.howToPlay)
 app.get('/rewards', index.rewards)
 
-
-// end of Emi's code
 
 // start the server at URL: http://localhost:3000/
 app.listen(3000, () => {
