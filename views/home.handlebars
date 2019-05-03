@@ -7,20 +7,6 @@
 <script type="text/javascript">
     
 $(document).ready(() => {
- $('#start-button').click(() => {
-   //console.log('Debug Test Start Button');
-   $.ajax({
-       url: 'Tasks_page/',
-       type: 'GET',
-       dataType: 'json',
-       success: (data) => {
-        //document.location.href =  'http://localhost:3000/Tasks_page.html'
-        console.log('Changed to Tasks Page');
-       }
-   });
- });
-
-
 //Backend Data Request
  $('#login-button').click(() => {
    console.log('Debug Test login Button');
