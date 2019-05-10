@@ -1,7 +1,7 @@
 {
   "name": "funsearch-v1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Goal Diggers App",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -10,8 +10,8 @@
     "type": "git",
     "url": "https://github.com/emioda4/cogs121"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Emi, Matthias, Kristen, Natalia",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
     "express3-handlebars": "^0.5.2"
