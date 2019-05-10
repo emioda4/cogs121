@@ -15,7 +15,7 @@
 	<button onclick="goBack()"> Go Back</button>
 
 	<div class="bodyText">
-		<h1>Task 1</h1>
+		<h1>Goal 1</h1>
 		<br><br>
 		<h3>Take a picture of a flower</h3>
 		<div class=imgBorder>
@@ -29,16 +29,23 @@
      	<a href="rewards">Rewards</a>
    </div>
 
-<!--
-	<div>
-		<br>
-		<button style="width:80px;height:50px;border:0;">Take Photo</a>
-	</div>
--->
 <script>
 	function goBack() {
   		window.history.back();
 	}
+
+	camera.getPicture(successCallback, errorCallback, options)
+
+	const video = document.getElementById('video');
+
+	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+}
 </script>
 </body>
 
