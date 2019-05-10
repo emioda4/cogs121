@@ -7,6 +7,30 @@
 	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
     crossorigin="anonymous">
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script src="jquery-3.3.1.min.js"></script>
+
+	  <script type="text/javascript">
+	  $(document).ready(() => {
+	  	$('#takePhoto').click(() => {
+		console.log('trying to take a photo');
+
+		// Prefer camera resolution nearest to 1280x720.
+		const constraints = { audio: true, video: { width: 1280, height: 720 } }; 
+		navigator.mediaDevices.getUserMedia(constraints)
+		.then(function(mediaStream) {
+  		const video = document.querySelector('video');
+  		video.srcObject = mediaStream;
+  		video.onloadedmetadata = function(e) {
+    		video.play();
+  			};
+		})
+		.catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors 	at the end.
+		});
+
+		
+	});
+	</script>
 </head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +45,7 @@
 		<div class=imgBorder>
 			<img src="http://clipart-library.com/images/di48g6jie.png" style="width:20%">
 		</div>
+		<button id="takePhoto">Take a Photo</button>
 	</div>
 
 	<div class="navbar">
@@ -34,19 +59,8 @@
   		window.history.back();
 	}
 
-	camera.getPicture(successCallback, errorCallback, options)
-
-	const video = document.getElementById('video');
-
-	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Not adding `{ audio: true }` since we only want video now
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
-        video.srcObject = stream;
-        video.play();
-    });
-}
 </script>
+
 </body>
 
 <style>
