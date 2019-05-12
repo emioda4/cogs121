@@ -8,13 +8,14 @@
     crossorigin="anonymous">
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/camera.css"> 
+	<link rel="stylesheet" href="/css/layout.css"> 
 
 	<script src="jquery-3.3.1.min.js"></script>
 
 	<script type="text/javascript">
 	$(document).ready(() => {
 		$('#takePhoto').click(() => {
-		console.log('trying to take a photo');
+		console.log('trying to take a picture');
 
 		// Prefer camera resolution nearest to 1280x720.
 		// const constraints = { audio: true, video: { width: 1280, height: 720 } }; 
@@ -28,41 +29,42 @@
 		})
 		.catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors 	at the end.
 		});
-
 	});
-
+	
 	var constraints = { video: { facingMode: "user" }, audio: false };
 	// Define constants
-const cameraView = document.querySelector("#camera--view"),
-    cameraOutput = document.querySelector("#camera--output"),
-    cameraSensor = document.querySelector("#camera--sensor"),
-    cameraTrigger = document.querySelector("#camera--trigger")
-// Access the device camera and stream to cameraView
-$('#camera--trigger').click(function {
-function cameraStart() {
-    navigator.mediaDevices
-        .getUserMedia(constraints)
-        .then(function(stream) {
-        track = stream.getTracks()[0];
-        cameraView.srcObject = stream;
-    })
-    .catch(function(error) {
-        console.error("Oops. Something is broken.", error);
-    });
-}
+	const cameraView = document.querySelector("#camera--view"),
+	    cameraOutput = document.querySelector("#camera--output"),
+	    cameraSensor = document.querySelector("#camera--sensor"),
+	    cameraTrigger = document.querySelector("#camera--trigger")
+	
+	// Access the device camera and stream to cameraView
+	$('#camera--trigger').click(function() {
+		console.log('trying to take a picture');
+		function cameraStart() {
+		    navigator.mediaDevices
+		        .getUserMedia(constraints)
+		        .then(function(stream) {
+		        track = stream.getTracks()[0];
+		        cameraView.srcObject = stream;
+		    })
+		    .catch(function(error) {
+		        console.error("Oops. Something is broken.", error);
+		    });
+		}
 
-// Take a picture when cameraTrigger is tapped
 
-    cameraSensor.width = cameraView.videoWidth;
-    cameraSensor.height = cameraView.videoHeight;
-    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-    cameraOutput.src = cameraSensor.toDataURL("image/webp");
-    cameraOutput.classList.add("taken");
+	// Take a picture when cameraTrigger is tapped
+	    cameraSensor.width = cameraView.videoWidth;
+	    cameraSensor.height = cameraView.videoHeight;
+	    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+	    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+	    cameraOutput.classList.add("taken");
 
-});
-// Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
-
+	    window.addEventListener("load", cameraStart, false);
+	});
+	// Start the video stream when the window loads
+	
 	</script>
 
 </head>
@@ -74,18 +76,20 @@ window.addEventListener("load", cameraStart, false);
 
 	<div class="bodyText">
 		<h1>Goal 1</h1>
-		<br><br>
+		<hr><br><br>
 		<h3>Take a picture of a flower</h3>
-		<div class=imgBorder>
-			<img src="http://clipart-library.com/images/di48g6jie.png" style="width:20%">
+		<br>
+
+		<div class=imgBorder id="cameraOn">
+			<img src="http://clipart-library.com/images/di48g6jie.png" style="width:90%">
 		</div>
+		<br><br>
 		<button id="takePhoto">Take a Photo</button>
 
 		<main id="camera">
 			<video id="camera--view" autoplay playsinline></video>
 			<canvas id="camera--sensor"></canvas>
 			<img src="//:0" alt="" id="camera--output">
-			<button id="camera--trigger">Take a picture</button>
 		</main>
 
 
