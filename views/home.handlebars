@@ -3,9 +3,15 @@
 <head>
 <title>Home</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-    
+
 $(document).ready(() => {
 //Backend Data Request
  $('#login-button').click(() => {
@@ -25,29 +31,49 @@ $(document).ready(() => {
 </script>
 </head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <body>
-    <center>
-        <div id="homepage">
-            <h1>Goal</h1>
-            <h1>Diggers</h1>
-        </div>          
-        <div id="start-container">
-            <button onclick="window.location.href='tasks'" style="width:80px;height:50px;border:0;">Start</a>
-        </div>
-        <div id="login-container">
-            <button id = "login-button" style="width:80px;height:50px;border:0;">Login</a>
-        </div>
-      <div id="rewards-container">
-            <button onclick="window.location.href='rewards'" style="width:80px;height:50px;border:0;">Rewards</a>
-        </div>
-      <div id="howTo-container">
-            <button onclick="window.location.href='howToPlay'" style="width:80px;height:50px;border:0;">How to Play</a>
-        </div>
-    
-    <div id="loginstatus"></div>
 
-    </center>
+  <div class="header" id="homepage">
+    <h1>Goal Diggers</h1>
+  </div>
+
+  <style>
+  /* Style the header */
+  .header {
+    padding: 50px 16px;
+    background: #008080;
+    text-align: center;
+    color: #f1f1f1;
+    font-size:  50px;
+  }
+  </style>
+  <br></br>
+
+  <div class="pill-nav">
+  <a  href="tasks">Start</a>
+  <a href="#">Login</a>
+  <a href="rewards">Rewards</a>
+  <a href="howToPlay">How to Play</a>
+</div>
+
+<style>
+.pill-nav a {
+display: block;
+text-align: center;
+color: #008080;
+padding: 14px;
+text-decoration:none;
+font-size: 30px;
+border-radius: 20px;
+}
+
+.pill-nav a:hover {
+background-color: #5ccc8f;
+color: black;
+}
+</style>
+
+
 </body>
 </html>

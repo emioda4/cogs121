@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Rewards</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
@@ -9,15 +10,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <body>
-    <center>
-        <div id="rewards">
-            <h1>Rewards</h1>
-        </div>          
-    </center>
+  <div class="header" id="rewards">
+    <h1>Rewards</h1>
+  </div>
 
+  <style>
+  /* Style the header */
+  .header {
+    padding: 20px 16px;
+    background: #008080;
+    text-align: center;
+    color: #f1f1f1;
+    font-size: 20 px;
+  }
+  </style>
+	<br>
     <button onclick="goBack()"> Go Back</button>
 
     <script>
@@ -25,14 +34,15 @@
         window.history.back();
     }
     </script>
-    
+
   <div class="points">
      <p>
 	  <h2>Total Points: 0</h2>
      </p>
   </div>
-	
-	
+
+	</div>
+
   <div class="rewardList">
      <p>
 	<h2>Rewards</h2>
@@ -42,20 +52,40 @@
 	<p>Reward #3 300 points</p>
   </div>
 
-<div class="navbar">
-    <a href="/tasks">Home</a>
-    <a id="task_overview" href="task_overview">Overview</a>
-    <a id="rewards" href="rewards">Rewards</a>
-  </div>
-	
-</body> 
+	<div class="icon-bar">
+		<a href="tasks"><i class="fa fa-home"></i></a>
+		<a href="task_overview"><i class="fa fa-map-pin"></i></a>
+		<a href="rewards" class="active"><i class="fa fa-trophy"></i></a>
+	</div>
 
-<style>
-  .navbar {
-    width:100%;
-    overflow: hidden;
-        position: fixed;
-        bottom: 0;
-  }
+
+	<style>
+	body {margin:0;}
+	.icon-bar {
+	background-color: #008080;
+	overflow: hidden;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+
+	}
+
+	.icon-bar a {
+	float: left;
+	width: 33.3%;
+	text-align: center;
+	padding: 12px 10px;
+	transition: all 0.3s ease;
+	color: white;
+	font-size: 36px;
+	}
+
+	.icon-bar a:hover {
+	background-color: #5ccc8f;
+	}
+
+	.active {
+	background-color: #7accae;
+	}
 </style>
 </html>
