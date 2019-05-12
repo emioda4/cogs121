@@ -1,3 +1,54 @@
 body {
-	background-color: #A7F1F7;
+
 }
+
+.header {
+    padding: 50px 16px;
+    background: #008080;
+    text-align: center;
+    color: #f1f1f1;
+    font-size:  50px;
+  }
+
+.pill-nav a {
+display: block;
+text-align: center;
+color: #008080;
+padding: 14px;
+text-decoration:none;
+font-size: 30px;
+border-radius: 20px;
+}
+
+.pill-nav a:hover {
+background-color: #5ccc8f;
+color: black;
+}
+
+.icon-bar {
+	background-color: #008080;
+	overflow: hidden;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.icon-bar a {
+	float: left;
+	width: 33.3%;
+	text-align: center;
+	padding: 12px 10px;
+	transition: all 0.3s ease;
+	color: white;
+	font-size: 36px;
+}
+
+.icon-bar a:hover {
+	background-color: #5ccc8f;
+}
+
+.active {
+	background-color: #7accae;
+}
+
+

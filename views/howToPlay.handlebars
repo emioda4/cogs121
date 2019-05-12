@@ -7,16 +7,19 @@
   	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
     crossorigin="anonymous">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="/css/layout.css"> 
+
 </head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body>
+	<div class="header">
+		<h1>How to Play</h1>
+	</div>
 	<button onclick="goBack()"> Go Back</button>
 
 	<div class="bodyText">
-		<h1>How to Play</h1>
-		<hr>
 		<h3>How to Play:</h3>
 		<p>_________________</p>
 		<br><br>
@@ -24,10 +27,10 @@
 
 	</div>
 
-	<div class="navbar">
-    	<a href="/tasks">Home</a>
-    	<a href="task_overview">Overview</a>
-     	<a href="rewards">Rewards</a>
+	<div class="icon-bar">
+    	<a href="tasks"><i class="fa fa-home"></i></a>
+		<a href="task_overview"><i class="fa fa-map-pin"></i></a>
+		<a href="rewards"><i class="fa fa-trophy"></i></a>
    </div>
 
 
@@ -43,13 +46,6 @@
 <style>
 	.bodyText {
 		text-align: center;
-	}
-
-	.navbar {
-		width:100%;
-		overflow: hidden;
-      	position: fixed;
-      	bottom: 0;
 	}
 </style>
 </html>
