@@ -33,6 +33,30 @@
 	  			};
 			})
 			.catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors 	at the end.
+
+			// Elements for taking the snapshot
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			var video = document.getElementById('video');
+
+			// Trigger photo take
+			document.getElementById("snap").addEventListener("click", function() {
+				context.drawImage(video, 0, 0, 400, 450);
+
+				// Stop all video streams.
+    			video.srcObject.getVideoTracks().forEach(track => track.stop());
+			});
+
+
+			// Get access to the camera!
+			if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+			    // Not adding `{ audio: true }` since we only want video now
+			    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+			        //video.src = window.URL.createObjectURL(stream);
+			        video.srcObject = stream;
+			        video.play();
+			    });
+			}
 		});	
 
 		var constraints = { video: { facingMode: "user" }, audio: false };
@@ -57,18 +81,18 @@
 		    });
 		}
 
-
-	// Take a picture when cameraTrigger is tapped
-	    cameraSensor.width = cameraView.videoWidth;
-	    cameraSensor.height = cameraView.videoHeight;
-	    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-	    cameraOutput.src = cameraSensor.toDataURL("image/webp");
-	    cameraOutput.classList.add("taken");
-
 	    window.addEventListener("load", cameraStart, false);
 	});
-		
 
+		// when snap button is clicked, replace camera with captured photo
+		$('#snap').on('click',function() {
+		    $('#one').replaceWith($('#two'));
+		});
+
+		function myFunction() {
+			document.getElementById("show").innerHTML = "Show the picture to your parent!"
+		}
+		
 	</script>
 
 </head>
@@ -81,12 +105,21 @@
 	</div>
 	<br>
 	<button onclick="goBack()"> Go Back</button>
+	<div>
+		<div id="one">
+			<video id="video" width="100%" height="450" autoplay></video>
+		</div>
 
-	<main id="camera">
-		<video id="camera--view" autoplay playsinline></video>
-		<canvas id="camera--sensor"></canvas>
-		<img src="//:0" alt="" id="camera--output">
-	</main>
+		<div>
+			<button class="snapButton" id="snap" onclick="myFunction()"><img src="https://cdn4.iconfinder.com/data/icons/photography-vol-2/48/87-512.png" style="width:45px;height:45px;border:0;"></button>
+		</div>
+		<br>
+		<div id="two">
+			<canvas id="canvas" width="400" height="420"></canvas>
+		</div>
+		<h3 id="show"></h3>
+	</div>
+	<br><br><br><br><br><br>
 
 	<div class="icon-bar">
 		<a href="tasks"><i class="fa fa-home"></i></a>
@@ -94,6 +127,16 @@
 		<a href="rewards"><i class="fa fa-trophy"></i></a>
 	</div>
 
-
 </body>
+
+<style>
+	.snapButton{
+       background-color: #E84646;
+       border-radius:10px;
+       left:55%;
+       margin: -20px -50px; 
+       position:relative;
+    }
+
+</style>
 </html>
