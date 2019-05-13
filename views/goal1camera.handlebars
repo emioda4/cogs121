@@ -92,6 +92,12 @@
 		function myFunction() {
 			document.getElementById("show").innerHTML = "Show the picture to your parent!"
 		}
+		function completeGoal() {
+			var value = parseInt(document.getElementById('number').value, 10);
+    			value = isNaN(value) ? 0 : value;
+    			value=value +10;
+   			document.getElementById('number').value = value;
+		}
 		
 	</script>
 
