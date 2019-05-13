@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node server.js"
   },
-
   "author": "Emi, Matthias, Kristen, Natalia",
   "license": "MIT",
   "private": true,
@@ -14,9 +13,9 @@
     "express": "^4.16.4",
     "express3-handlebars": "^0.5.2",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "sqlite3": "^4.0.8"
   },
-
   "engines": {
     "node": "8.9.x"
   }

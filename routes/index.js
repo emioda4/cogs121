@@ -29,3 +29,6 @@ exports.tasks = function(req, res){
 exports.goal1camera = function(req, res){
   res.render('goal1camera');
 };
+exports.login = function(req, res){
+  res.render('login');
+};
