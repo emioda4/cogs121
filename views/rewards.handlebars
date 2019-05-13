@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/layout.css"> 
+  <link rel="stylesheet" href="/css/layout.css">
 </head>
 
 
@@ -26,22 +26,21 @@
     }
     </script>
 
-  <div class="points">
-     <p>
-	  <h2>Total Points: 0</h2>
-     </p>
-  </div>
+		<div class="container">
+			<h2>Total Points:</h2>
+			<a id="totalRewards" value = 0 ></a>
+		<script>
+		var totalRewards = document.getElementById("totalRewards")
+		totalRewards.innerHTML = totalRewards+10 +"%";
+		</script>
 
-	</div>
+		<div class="progress">
+			<div class="progress-bar active" role="progressbar" aria-valuenow=totalRewards
+			aria-valuemin="0"  aria-valuemax="100" style="width:10%">
+			</div>
+		</div>
+		</div>
 
-  <div class="rewardList">
-     <p>
-	<h2>Rewards</h2>
-     </p>
-	<p>Reward #1 100 points</p>
-	<p>Reward #2 200 points</p>
-	<p>Reward #3 300 points</p>
-  </div>
 
 	<div class="icon-bar">
 		<a href="tasks"><i class="fa fa-home"></i></a>
