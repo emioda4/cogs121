@@ -1,106 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Task 1</title>
+	<title>Goal 1</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
     crossorigin="anonymous">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/camera.css"> 
 	<link rel="stylesheet" href="/css/layout.css"> 
 
 	<script src="jquery-3.3.1.min.js"></script>
-
-	<script type="text/javascript">
-	$(document).ready(() => {
-		$('#takePhoto').click(() => {
-		console.log('trying to take a picture');
-
-		// Prefer camera resolution nearest to 1280x720.
-		// const constraints = { audio: true, video: { width: 1280, height: 720 } }; 
-		navigator.mediaDevices.getUserMedia(constraints)
-		.then(function(mediaStream) {
-  		const video = document.querySelector('video');
-  		video.srcObject = mediaStream;
-  		video.onloadedmetadata = function(e) {
-    		video.play();
-  			};
-		})
-		.catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors 	at the end.
-		});
-	});
-	
-	var constraints = { video: { facingMode: "user" }, audio: false };
-	// Define constants
-	const cameraView = document.querySelector("#camera--view"),
-	    cameraOutput = document.querySelector("#camera--output"),
-	    cameraSensor = document.querySelector("#camera--sensor"),
-	    cameraTrigger = document.querySelector("#camera--trigger")
-	
-	// Access the device camera and stream to cameraView
-	$('#camera--trigger').click(function() {
-		console.log('trying to take a picture');
-		function cameraStart() {
-		    navigator.mediaDevices
-		        .getUserMedia(constraints)
-		        .then(function(stream) {
-		        track = stream.getTracks()[0];
-		        cameraView.srcObject = stream;
-		    })
-		    .catch(function(error) {
-		        console.error("Oops. Something is broken.", error);
-		    });
-		}
-
-
-	// Take a picture when cameraTrigger is tapped
-	    cameraSensor.width = cameraView.videoWidth;
-	    cameraSensor.height = cameraView.videoHeight;
-	    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-	    cameraOutput.src = cameraSensor.toDataURL("image/webp");
-	    cameraOutput.classList.add("taken");
-
-	    window.addEventListener("load", cameraStart, false);
-	});
-	// Start the video stream when the window loads
-	
-	</script>
-
 </head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body>
+	<div class="header">
+		<h1>Goal 1</h1>
+	</div>
+	<br>
 	<button onclick="goBack()"> Go Back</button>
 
 	<div class="bodyText">
-		<h1>Goal 1</h1>
-		<hr><br><br>
+		<br>
 		<h3>Take a picture of a flower</h3>
 		<br>
 
 		<div class=imgBorder id="cameraOn">
 			<img src="http://clipart-library.com/images/di48g6jie.png" style="width:90%">
 		</div>
-		<br><br>
-		<button id="takePhoto">Take a Photo</button>
-
-		<main id="camera">
-			<video id="camera--view" autoplay playsinline></video>
-			<canvas id="camera--sensor"></canvas>
-			<img src="//:0" alt="" id="camera--output">
-		</main>
-
+		<br>
+		<button class="button" id="takePhoto" onclick="window.location.href='goal1camera'"><img src="https://cdn1.iconfinder.com/data/icons/iconmart-web-icons-2/64/camera-512.png" style="width:37px;height:37px;border:0;"></button>
 
 	</div>
 
-	<div class="navbar">
-    	<a id="home" href="/tasks">Home</a>
-    	<a href="task_overview">Overview</a>
-     	<a href="rewards">Rewards</a>
-   </div>
+	<div class="icon-bar">
+		<a href="tasks"><i class="fa fa-home"></i></a>
+		<a href="task_overview"><i class="fa fa-map-pin"></i></a>
+		<a href="rewards"><i class="fa fa-trophy"></i></a>
+	</div>
 
 <script>
 	function goBack() {
@@ -118,18 +57,29 @@
 
 	.imgBorder {
 		border: 1px solid black;
-		
 		padding: 5px;
 		display: block;
  		margin-left: auto;
   		margin-right: auto;
   		width: 50%;
 	}
-	.navbar {
-		width:100%;
-		overflow: hidden;
-      	position: fixed;
-      	bottom: 0;
-	}
+
+	.button {
+        background-color: #E3E1E1;
+        border: none;
+        color: white;
+        padding: 8px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius:10px;
+    }
+    
+    .button:hover {
+        background-color: rgba(253, 196, 42, 0.74);
+    }  
 </style>
 </html>

@@ -25,3 +25,7 @@ exports.rewards = function(req, res){
 exports.tasks = function(req, res){
   res.render('tasks');
 };
+
+exports.goal1camera = function(req, res){
+  res.render('goal1camera');
+};

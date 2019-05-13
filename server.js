@@ -48,6 +48,8 @@ app.get('/tasks_page', index.tasks_page)
 app.get('/howToPlay', index.howToPlay)
 app.get('/rewards', index.rewards)
 app.get('/tasks', index.tasks)
+app.get('/goal1camera', index.goal1camera)
+
 
 // start the server at URL: http://localhost:3000/
 app.listen(3000, () => {

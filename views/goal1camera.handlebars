@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Goal 1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+    crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/camera.css"> 
+	<link rel="stylesheet" href="/css/layout.css"> 
+
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		function goBack() {
+	  		window.history.back();
+		}
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(() => {
+			console.log('trying to take a picture');
+
+			// Prefer camera resolution nearest to 1280x720.
+			// const constraints = { audio: true, video: { width: 1280, height: 720 } }; 
+			navigator.mediaDevices.getUserMedia(constraints)
+			.then(function(mediaStream) {
+	  		const video = document.querySelector('video');
+	  		video.srcObject = mediaStream;
+	  		video.onloadedmetadata = function(e) {
+	    		video.play();
+	  			};
+			})
+			.catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors 	at the end.
+		});	
+
+		var constraints = { video: { facingMode: "user" }, audio: false };
+		// Define constants
+		const cameraView = document.querySelector("#camera--view"),
+		    cameraOutput = document.querySelector("#camera--output"),
+		    cameraSensor = document.querySelector("#camera--sensor"),
+		    cameraTrigger = document.querySelector("#camera--trigger")
+
+		   // Access the device camera and stream to cameraView
+	$('#camera--trigger').click(function() {
+		console.log('trying to take a picture');
+		function cameraStart() {
+		    navigator.mediaDevices
+		        .getUserMedia(constraints)
+		        .then(function(stream) {
+		        track = stream.getTracks()[0];
+		        cameraView.srcObject = stream;
+		    })
+		    .catch(function(error) {
+		        console.error("Oops. Something is broken.", error);
+		    });
+		}
+
+
+	// Take a picture when cameraTrigger is tapped
+	    cameraSensor.width = cameraView.videoWidth;
+	    cameraSensor.height = cameraView.videoHeight;
+	    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+	    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+	    cameraOutput.classList.add("taken");
+
+	    window.addEventListener("load", cameraStart, false);
+	});
+		
+
+	</script>
+
+</head>
+
+
+
+<body>
+	<div class="header">
+		<h1>Goal 1</h1>
+	</div>
+	<br>
+	<button onclick="goBack()"> Go Back</button>
+
+	<main id="camera">
+		<video id="camera--view" autoplay playsinline></video>
+		<canvas id="camera--sensor"></canvas>
+		<img src="//:0" alt="" id="camera--output">
+	</main>
+
+	<div class="icon-bar">
+		<a href="tasks"><i class="fa fa-home"></i></a>
+		<a href="task_overview"><i class="fa fa-map-pin"></i></a>
+		<a href="rewards"><i class="fa fa-trophy"></i></a>
+	</div>
+
+
+</body>
+</html>
