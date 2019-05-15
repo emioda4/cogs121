@@ -84,15 +84,22 @@
 	    window.addEventListener("load", cameraStart, false);
 	});
 
-		// when snap button is clicked, replace camera with captured photo
-		$('#snap').on('click',function() {
-		    $('#one').replaceWith($('#two'));
-		});
-
-		function myFunction() {
-			document.getElementById("show").innerHTML = "Show the picture to your parent!"
+		//function to put canvas over the camera
+		function swapFunction() {
+			if (document.getElementById('one').style.display == 'none') {
+                    document.getElementById('one').style.display = 'block';
+                    document.getElementById('two').style.display = 'none';
+                    document.getElementById('completeBtn').style.display = 'none';
+            }
+            else {
+                document.getElementById('one').style.display = 'none';
+                document.getElementById('two').style.display = 'block';
+                document.getElementById('snap').style.display = 'none';
+                document.getElementById('show').innerHTML = "Show the picture to your parent and let them click the button below!"
+                document.getElementById('completeBtn').style.display = 'block';
+            }
 		}
-		
+			
 	</script>
 
 </head>
@@ -111,15 +118,23 @@
 		</div>
 
 		<div>
-			<button class="snapButton" id="snap" onclick="myFunction()"><img src="https://cdn4.iconfinder.com/data/icons/photography-vol-2/48/87-512.png" style="width:45px;height:45px;border:0;"></button>
-		</div>
-		<br>
+			<button class="snapButton" id="snap" onclick="swapFunction()"><img src="https://cdn4.iconfinder.com/data/icons/photography-vol-2/48/87-512.png" style="width:45px;height:45px;border:0;"></button>
+		</div><br>
+
 		<div id="two">
-			<canvas id="canvas" width="400" height="420"></canvas>
+			<canvas id="canvas" width="380" height="400"></canvas>
 		</div>
-		<h3 id="show"></h3>
-	</div>
-	<br><br><br><br><br><br>
+
+		<h4 id="show" style="text-align: center"></h4><br>
+		
+		<div id="completeBtn">
+			<button class="completeStyle">Complete!</button>
+		</div>
+		
+
+	</div><br><br><br><br><br><br>
+
+
 
 	<div class="icon-bar">
 		<a href="tasks"><i class="fa fa-home"></i></a>
@@ -136,6 +151,19 @@
        left:55%;
        margin: -20px -50px; 
        position:relative;
+    }
+
+    .completeStyle {
+		background-color: lightblue;
+		border-radius:10px;
+		font-size:25px;
+		color: white;
+        left:50%;
+        margin: -10% -20%; 
+        padding:3%;
+        padding-right: 4%;
+        padding-left: 4%;
+        position:relative;
     }
 
 </style>
