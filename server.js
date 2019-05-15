@@ -5,14 +5,6 @@ const path = require('path');
 const handlebars = require('express3-handlebars')
 const index = require('./routes/index');
 
-//const ourFakeDatabase = {
-  //'Matthias': {id: 'Matthias', role: 'Parent'},
-//  'Kristen': {id: 'Kristen', role: 'Child'},
-//  'Emi': {id: 'Emi', role: 'Child'},
-//  'Natalia' : {id: 'Natalia', role: 'Parent'}
-//};
-
-
 app.use(express.static('views'));
 app.use(express.json());
 app.use(express.urlencoded());
@@ -54,8 +46,6 @@ app.use(express.static('views'));
 
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('goalDigger.db');
-
-
 
 app.get('/goalDigger', (req, res) => {
   db.all('SELECT title FROM users_to_goalDigger', (err, rows) =>{
@@ -120,6 +110,13 @@ app.get('/users/:goalDiggerid', (req, res) => {
     }
   );
 });
+
+
+//rewards code below
+const score_db = new sqlite3.Database('totalScore.db');
+
+
+
 
 // start the server at URL: http://localhost:3000/
 app.listen(3000, () => {

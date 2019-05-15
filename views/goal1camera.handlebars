@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/camera.css"> 
 	<link rel="stylesheet" href="/css/layout.css"> 
+	<link rel="stylesheet" href="/css/popup.css"> 
+
 
 	<script src="jquery-3.3.1.min.js"></script>
 	<script>
@@ -20,8 +22,6 @@
 
 	<script type="text/javascript">
 		$(document).ready(() => {
-			console.log('trying to take a picture');
-
 			// Prefer camera resolution nearest to 1280x720.
 			// const constraints = { audio: true, video: { width: 1280, height: 720 } }; 
 			navigator.mediaDevices.getUserMedia(constraints)
@@ -56,8 +56,20 @@
 			        video.srcObject = stream;
 			        video.play();
 			    });
-			}
+			};
+
+			//ajax call to listen to click of completeBtn and send something to backend
+			$('#completeBtn').click(() => {
+				$.ajax({
+					type: 'GET',
+					success: (data) => {
+						console.log('you received some data!');
+						$('#myPopup').html('You scored: ');
+					},
+				});
+			});
 		});	
+
 
 		var constraints = { video: { facingMode: "user" }, audio: false };
 		// Define constants
@@ -66,7 +78,7 @@
 		    cameraSensor = document.querySelector("#camera--sensor"),
 		    cameraTrigger = document.querySelector("#camera--trigger")
 
-		   // Access the device camera and stream to cameraView
+	// Access the device camera and stream to cameraView
 	$('#camera--trigger').click(function() {
 		console.log('trying to take a picture');
 		function cameraStart() {
@@ -99,6 +111,12 @@
                 document.getElementById('completeBtn').style.display = 'block';
             }
 		}
+
+	function popupFunction() {
+	  var popup = document.getElementById("myPopup");
+	  popup.classList.toggle("show");
+	}
+
 			
 	</script>
 
@@ -127,9 +145,14 @@
 
 		<h4 id="show" style="text-align: center"></h4><br>
 		
-		<div id="completeBtn">
-			<button class="completeStyle">Complete!</button>
+		<div class="popup">
+			<button class="completeStyle" id="completeBtn" onclick="popupFunction()">Complete!</button>
+			<span class="popuptext" id="myPopup"></span>
 		</div>
+
+		<div id="points"></div>
+
+		
 		
 
 	</div><br><br><br><br><br><br>

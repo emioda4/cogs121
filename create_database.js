@@ -19,13 +19,14 @@ const db = new sqlite3.Database('goalDigger.db');
 db.serialize(() => {
   // create a new database table:
   db.run("CREATE TABLE users_to_goalDigger (name TEXT, password TEXT)");
+  db.run("CREATE TABLE user_points (name TEXT, points TEXT)");
 
 // insert 3 rows of data:
-
   db.run("INSERT INTO users_to_goalDigger VALUES ('Nataliya', '123456')");
   db.run("INSERT INTO users_to_goalDigger VALUES ('Emi', '234567')");
   db.run("INSERT INTO users_to_goalDigger VALUES ('Matthias', '345678')");
   db.run("INSERT INTO users_to_goalDigger VALUES ('Kristen', '456789')");
+  db.run("INSERT INTO user_points VALUES ('Emi', '0')");
 
   console.log('successfully created the users_to_goalDigger table in goalDigger.db');
 
@@ -33,6 +34,10 @@ db.serialize(() => {
   db.each("SELECT name, password FROM users_to_goalDigger", (err, row) => {
       console.log(row.name + ": " + row.password);
   });
+  db.each("SELECT name, points FROM user_points", (err, row) => {
+      console.log(row.name + ": " + row.points);
+  });
+
 });
 
 db.close();
