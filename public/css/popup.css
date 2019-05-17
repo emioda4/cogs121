@@ -1,6 +1,5 @@
 .popup {
   position: relative;
-  display: inline-block;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -11,7 +10,7 @@
 /* The actual popup */
 .popup .popuptext {
   visibility: hidden;
-  width: 160px;
+  width: 300px;
   background-color: #5DD093;
   color: #fff;
   text-align: center;
@@ -20,7 +19,7 @@
   position: absolute;
   z-index: 1;
   bottom: 125%;
-  left: 50%;
+  left: 33%;
   margin-left: -80px;
 }
 

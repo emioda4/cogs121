@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>Goal 1</title>
+	<title>Goal 1</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -62,8 +62,12 @@
 			$('#completeBtn').click(() => {
 				$.ajax({
 					type: 'GET',
+					data: {
+		            	points: "10",
+		            },
+
 					success: (data) => {
-						console.log('you received some data!');
+						console.log('you received some data!' data);
 						$('#myPopup').html('You scored: ');
 					},
 				});
@@ -115,6 +119,8 @@
 	function popupFunction() {
 	  var popup = document.getElementById("myPopup");
 	  popup.classList.toggle("show");
+	  document.getElementById('one').style.display = 'none';
+	  document.getElementById('two').style.visibility = 'hidden';
 	}
 
 			
@@ -151,9 +157,6 @@
 		</div>
 
 		<div id="points"></div>
-
-		
-		
 
 	</div><br><br><br><br><br><br>
 
