@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
   <title>Task Overview Page</title>
   <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -14,96 +13,117 @@
 
 </head>
 
+
+
 <script>
-	function goBack() {
-	  window.history.back();
-	}
+  // Note: This example requires that you consent to location sharing when
+  // prompted by your browser. If you see the error "The Geolocation service
+  // failed.", it means you probably did not give permission for the browser to
+  // locate you.
+  var map;
+  var service;
+  var infowindow;
 
-	function myMap() {
-		var mapProp= {
-		  center:new google.maps.LatLng(32.86877, -117.22853),
-		  zoom:13,
-		};
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13
+    });//
+    infoWindow = new google.maps.InfoWindow;
 
-		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp, {
-			mapTypeControlOptions: {
-            	mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain', 'styled_map']
-          }
-		});
+    // current location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };///end if statement
 
-		var doylePark = {lat: 32.864566, lng: -117.220322};
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('You are here!');
+        infoWindow.open(map);
+        map.setCenter(pos);
 
-		var markerDoyle = new google.maps.Marker({
-			position: doylePark,
-			map: map
-		});
 
-		var utc = {lat: 32.870621, lng: -117.211567};
+        var request = {
+            location: pos,
+            radius: '1000',
+            type: ['park']
+          };//end var request
 
-		var markerUtc = new google.maps.Marker({
-			position: utc,
-			map: map
-		});
+          service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, callback);
 
-		var styledMapType = new google.maps.StyledMapType(
-            [
-			  {
-			    "featureType": "poi.park",
-			    "elementType": "geometry",
-			    "stylers": [
-			      { "color": "#A4E8B8" }
-			    ]
-			  },
-			  {
-			    "featureType": "road.arterial",
-			    "elementType": "geometry",
-			    "stylers": [
-			      { "color": "#F9F4F0" }
-			    ]
-			  },{
-			    "featureType": "poi.place_of_worship",
-			    "elementType": "labels",
-			    "stylers": [
-			      { "visibility": "off" }
-			    ]
-			  },
-			  {
-			    "featureType": "poi.medical",
-			    "elementType": "labels",
-			    "stylers": [
-			      { "visibility": "off" }
-			    ]
-			  }
-			],
-			{name: 'Styled Map'});
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  }//end function initMap
 
-		map.mapTypes.set('styled_map', styledMapType);
-        map.setMapTypeId('styled_map');
 
-	}
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        var place = results[0];///var place = results[0]; to mark only 1 place
+        createMarkers(place);
+      }
+    }
+  }//end function callback
+
+  function createMarkers(place) {
+
+      var image = {
+        url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        size: new google.maps.Size(100,100),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      }
+
+      var marker = new google.maps.Marker({
+        map: map,
+        icon: image,
+        title: place.name,
+        position: place.geometry.location,
+      });
+
+      marker.addListener('click', function() {
+      map.setZoom(16);
+      map.setCenter(marker.getPosition());
+      infowindow.open(marker.get('map'), marker);
+      });
+
+      var myGoal = '<p><a id ="Task1" href="task1" class="btn btn-info btn-lg" aria-hidden="true">Goal 1</a>'+ '<br></br>'+
+               '<a id ="Task2" href="#" class="btn btn-info btn-lg" aria-hidden="true">Goal 2</a>'+ '<br></br>'+
+                '<a id ="Task3" href="#" class="btn btn-info btn-lg" aria-hidden="true"></span>Goal 3</a>' +'</p>';
+
+
+      var infowindow = new google.maps.InfoWindow({
+        content: myGoal
+      });
+    }//end function
 </script>
 
-
 <body>
-    <div class="header" id="task_overview">
-      <h1>Goal Overview</h1>
-    </div>
-	<br>
+  <div class="header" id="task_overview">
+    <h1>Goal Overview</h1>
+  </div>
+<br>
 
 <button onclick="goBack()"> Go Back</button>
-  <h5 style="text-align: center">Map</h5>
+<h5 style="text-align: center">Map</h5>
 
-<div id="googleMap" style="width:100%;height:400px;"></div>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaxRdT8G8uKojUzG1PX2OQyeXD-B3T64A&callback=myMap"></script>
+<div id="map" style="width:100%;height:400px;"></div>
 
-  <div class="icon-bar">
-    <a href="tasks" ><i class="fa fa-home"></i></a>
-    <a href="task_overview" class="active"><i class="fa fa-map-pin"></i></a>
-    <a href="rewards"><i class="fa fa-trophy"></i></a>
-  </div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaxRdT8G8uKojUzG1PX2OQyeXD-B3T64A&libraries=places&callback=initMap"></script>
 
+<div class="icon-bar">
+  <a href="tasks" ><i class="fa fa-home"></i></a>
+  <a href="task_overview" class="active"><i class="fa fa-map-pin"></i></a>
+  <a href="rewards"><i class="fa fa-trophy"></i></a>
+</div>
 
-<style>
-body {margin:0;}
-</style>
+</body>
 </html>

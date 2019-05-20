@@ -47,12 +47,12 @@ app.use(express.static('views'));
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('goalDigger.db');
 
-app.get('/goalDigger', (req, res) => {
-  db.all('SELECT title FROM users_to_goalDigger', (err, rows) =>{
+app.get('/users', (req, res) => {
+  db.all('SELECT name FROM users_to_goalDigger', (err, rows) =>{
     console.log(rows);
-    const allGoalDigger = rows.map(e => e.title);
-    console.log(allGoalDigger);
-    res.send(allGoalDigger);
+    const allUsernames = rows.map(e => e.name);
+    console.log(allUsernames );
+    res.send(allUsernames );
   });
 });
 
@@ -64,12 +64,14 @@ app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
 app.post('/users', (req, res) => {
   console.log(req.body);
 
+
   db.run(
     'INSERT INTO users_to_goalDigger VALUES ($name, $password)',
     // parameters to SQL query:
     {
       $name: req.body.name,
       $password: req.body.password,
+      $points:  req.body.points,
     },
     // callback function to run when the query finishes:
     (err) => {
@@ -89,8 +91,8 @@ app.post('/users', (req, res) => {
 //   http://localhost:3000/users/Philip
 //   http://localhost:3000/users/Carol
 //   http://localhost:3000/users/invalidusername
-app.get('/users/:goalDiggerid', (req, res) => {
-  const nameToLookup = req.params.goalDiggerid; // matches ':userid' above
+app.get('/users/:userid', (req, res) => {
+  const nameToLookup = req.params.userid; // matches ':userid' above
 
   // db.all() fetches all results from an SQL query into the 'rows' variable:
   db.all(
@@ -113,7 +115,7 @@ app.get('/users/:goalDiggerid', (req, res) => {
 
 
 //rewards code below
-const score_db = new sqlite3.Database('totalScore.db');
+//const score_db = new sqlite3.Database('totalScore.db');
 
 
 

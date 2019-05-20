@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/layout.css">
   <script src="jquery-3.3.1.min.js"></script>
+
+</head>
+
   <body>
 
     <div class="header" id="login">
@@ -19,15 +22,16 @@
     </div>
 
     <br><br><br><br><br><br>
-<center><form action="tasks">
-    Nickname:<br>
-    <input type="text" name="firstname" value="">
-    <br>
-    Password:<br>
-    <input type="text" name="lastname" value="">
-    <br><br>
-    <input type="submit" value="Login">
+<center><form onSubmit= action="tasks">
+    Nickname:<br><input id="nameBox" type="text" value=""><br>
+    Password:<br><input id="passwordBox" type="text" value=""><br>
+     <br><button id="readButton" onSubmit="tasks" type="submit"> Login</button>
+     <br><div id="nameDiv"></div>
+     <br><div id="pointsDiv"></div>
+     <br><div id="status"></div>
+
+
 </form></center>
+\
 </body>
-</head>
 </html>

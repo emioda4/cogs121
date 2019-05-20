@@ -1,0 +1,2 @@
+# ignore all node_modules/ -- do NOT put them in git -- use 'npm install' to install on your machine
+node_modules/
