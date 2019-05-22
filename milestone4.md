@@ -16,11 +16,11 @@ Goal 1
 
 Camera Function
 
-<img src="Image 5-22-19 at 10.16 AM.jpg" width="300" height="500" />
+<img src="Image 5-22-19 at 10.39 AM.jpg" width="300" height="500" />
 
 Goal Complete
 
-<img src="Image 5-22-19 at 9.36 AM.jpg" width="300" height="500" />
+<img src="Image 5-22-19 at 10.40 AM.jpg" width="300" height="500" />
 
 Points Page
 
