@@ -9,6 +9,24 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/layout.css">
+  <script src="jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    //code to display current number of points when the page loads
+    $(document).ready(() => {
+   console.log("Working!");
+   $.ajax({
+   	url: '/points',
+   	type: 'GET',
+   	dataType: 'json',
+   	success: (data) => {
+   		console.log('You recieved some data!', data);
+   		$('#pointsDiv').html('Total Points: ' + data.points);
+   	 }
+   })
+});
+
+
+</script>
 </head>
 
 
@@ -27,8 +45,14 @@
     </script>
 
 		<div class="container">
-			<h2>Total Points:</h2>
+			
+
+			<h2><div id = "pointsDiv"></div></h2>
+			
+
 			<a id="totalRewards" value = 0 ></a>
+		
+<!--
 		<script>
 		var totalRewards = document.getElementById("totalRewards")
 		totalRewards.innerHTML = totalRewards+10 +"%";
@@ -46,8 +70,7 @@
 		<a href="tasks"><i class="fa fa-home"></i></a>
 		<a href="task_overview"><i class="fa fa-map-pin"></i></a>
 		<a href="rewards" class="active"><i class="fa fa-trophy"></i></a>
-	</div>
-
+	</div-->
 
 	<style>
 	body {margin:0;}

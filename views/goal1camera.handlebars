@@ -59,17 +59,17 @@
 			};
 
 			//ajax call to listen to click of completeBtn and send something to backend
-			$('#completeBtn').click(() => {
+			$('#addPointsButton').click(() => {
+				console.log('clicked')
 				$.ajax({
-					type: 'GET',
+					url: '/addPoints',
+					type: 'POST',
 					data: {
-		            	points: "10",
+		            	addedPoints: 10,
 		            },
-
 					success: (data) => {
-						console.log('you received some data!' data);
-						$('#myPopup').html('You scored: ');
-					},
+						console.log('you received some data!' + data);
+					}
 				});
 			});
 		});	
@@ -151,11 +151,11 @@
 
 		<h4 id="show" style="text-align: center"></h4><br>
 		
-		<div class="popup">
-			<button class="completeStyle" id="completeBtn" onclick="popupFunction()">Complete!</button>
-			<span class="popuptext" id="myPopup"></span>
+        <center>
+		<div>
+			<button class="completeStyle" id="addPointsButton">Complete to earn 10 Pts!</button>
 		</div>
-
+        </center>
 		<div id="points"></div>
 
 	</div><br><br><br><br><br><br>
@@ -189,7 +189,6 @@
         padding:3%;
         padding-right: 4%;
         padding-left: 4%;
-        position:relative;
     }
 
 </style>
