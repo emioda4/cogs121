@@ -28,7 +28,7 @@ Points Page
 
 
 How our pages have improved:
-First, we decided to change the name of our app from "Goal Diggers" to "Play Pal" to make it appeal more to our targeted audience of children. We then improved the layout of how we wanted our goals to be displayed. We figured out how to utilize the map feature to use our current location to find a place near us to complete the goals. So instead of having the goals just listed all on one page, the user will click on a location which will then display the goals from that location. We were also able to update the points once the user finishes the task and clicks the "complete" button on the goal page. 
+First, we decided to change the name of our app from "Goal Diggers" to "Play Pal" to make it appeal more to our targeted audience of children. We then improved the layout of how we wanted our goals to be displayed. We figured out how to utilize the map feature to use our current location to find a place near us to complete the goals. So instead of having the goals just listed all on one page, the user will click on a location which will then display the goals from that location. We were also able to update the points once the user finishes the task and clicks the "complete" button on the goal page. The total points on the rewards page will then be updated accordingly.
 
 2 actions that the user can perform: 
 1) Go to the Overview page and find goals you can complete at a park near your current location.
