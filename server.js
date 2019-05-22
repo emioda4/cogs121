@@ -5,6 +5,7 @@ const path = require('path');
 const handlebars = require('express3-handlebars')
 const index = require('./routes/index');
 
+
 app.use(express.static('views'));
 app.use(express.json());
 app.use(express.urlencoded());
@@ -45,10 +46,17 @@ app.get('/login', index.login)
 app.use(express.static('views'));
 
 const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database('goalDigger.db');
+const db = new sqlite3.Database('playPal.db');
+
+//getting initial point value from the database
+ //let currentPoints =
+ //db.all('SELECT points FROM points_to_playPal', (err, rows) => {
+//	console.log('points are ' + (rows[0].points));
+//	return rows[0].points;
+// });
 
 app.get('/users', (req, res) => {
-  db.all('SELECT name FROM users_to_goalDigger', (err, rows) =>{
+  db.all('SELECT name FROM users_to_playPal', (err, rows) =>{
     console.log(rows);
     const allUsernames = rows.map(e => e.name);
     console.log(allUsernames );
@@ -66,7 +74,7 @@ app.post('/users', (req, res) => {
 
 
   db.run(
-    'INSERT INTO users_to_goalDigger VALUES ($name, $password)',
+    'INSERT INTO users_to_playPal VALUES ($name, $password)',
     // parameters to SQL query:
     {
       $name: req.body.name,
@@ -96,7 +104,7 @@ app.get('/users/:userid', (req, res) => {
 
   // db.all() fetches all results from an SQL query into the 'rows' variable:
   db.all(
-    'SELECT * FROM users_to_goalDigger WHERE name=$name',
+    'SELECT * FROM users_to_playPal WHERE name=$name',
     // parameters to SQL query:
     {
       $name: nameToLookup
@@ -113,9 +121,40 @@ app.get('/users/:userid', (req, res) => {
   );
 });
 
+//rewards retrival code
+app.get('/points', (req, res) => {
+	db.all('SELECT points FROM points_to_playPal',
 
-//rewards code below
-//const score_db = new sqlite3.Database('totalScore.db');
+		(err, rows) => {
+			console.log(rows);
+			if (rows.length > 0) {
+        res.send(rows[0]);
+          } else {
+        res.send({});
+		}
+	}
+  );
+});
+
+//Points updateing code
+app.post('/addPoints', (req, res) => {
+  console.log(req.body);
+  db.run(
+    'UPDATE points_to_playPal SET points = points + $addedPoints',
+    // parameters to SQL query:
+    {
+      $addedPoints: req.body.addedPoints
+    },
+    // callback function to run when the query finishes:
+    (err) => {
+      if (err) {
+        res.send({message: 'error in app.post(/users)'});
+      } else {
+        res.send({message: 'successfully run app.post(/users)'});
+      }
+    }
+  );
+});
 
 
 
