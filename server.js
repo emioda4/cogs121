@@ -42,6 +42,7 @@ app.get('/howToPlay', index.howToPlay)
 app.get('/rewards', index.rewards)
 app.get('/tasks', index.tasks)
 app.get('/goal1camera', index.goal1camera)
+app.get('/goal2', index.goal2)
 app.get('/login', index.login)
 app.use(express.static('views'));
 
