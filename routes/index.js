@@ -36,6 +36,18 @@ exports.login = function(req, res){
 exports.goal2 = function(req, res){
   res.render('goal2');
 };
+exports.goal3 = function(req, res){
+  res.render('goal3');
+};
+exports.goal4 = function(req, res){
+  res.render('goal4');
+};
+exports.goal5 = function(req, res){
+  res.render('goal5');
+};
+exports.goal6 = function(req, res){
+  res.render('goal6');
+};
 
 exports.goal7 = function(req, res){
   res.render('goal7');
