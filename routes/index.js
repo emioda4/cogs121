@@ -32,6 +32,11 @@ exports.goal1camera = function(req, res){
 exports.login = function(req, res){
   res.render('login');
 };
+
 exports.goal2 = function(req, res){
   res.render('goal2');
+};
+
+exports.goal7 = function(req, res){
+  res.render('goal7');
 };

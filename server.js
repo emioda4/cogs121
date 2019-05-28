@@ -44,6 +44,8 @@ app.get('/tasks', index.tasks)
 app.get('/goal1camera', index.goal1camera)
 app.get('/goal2', index.goal2)
 app.get('/login', index.login)
+app.get('/goal7', index.goal7)
+
 app.use(express.static('views'));
 
 const sqlite3 = require('sqlite3');
@@ -70,6 +72,7 @@ app.get('/users', (req, res) => {
 // use this library to parse HTTP POST requests
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
+app.use(bodyParser.json());
 app.post('/users', (req, res) => {
   console.log(req.body);
 
