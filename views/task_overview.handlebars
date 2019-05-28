@@ -33,25 +33,52 @@
     // current location
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
+        var home = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };///end if statement
 
-        infoWindow.setPosition(pos);
+        infoWindow.setPosition(home);
         infoWindow.setContent('You are here!');
         infoWindow.open(map);
-        map.setCenter(pos);
+        map.setCenter(home);
+
+        var homeMarker = new google.maps.Marker({
+         position: home,
+         map: map,
+         title: 'Home'
+        });
+
+          var request1 = {
+              location: home,
+              keyword: 'Park',
+              rankBy: google.maps.places.RankBy.DISTANCE,
+              //radius: ['10000']
+            };//end var request
 
 
-        var request = {
-            location: pos,
-            radius: '1000',
-            type: ['park']
-          };//end var request
+          var request2 = {
+                location: home,
+                keyword: 'Mall',
+                rankBy: google.maps.places.RankBy.PROMINENCE,
+                radius: ['10000'],
 
-          service = new google.maps.places.PlacesService(map);
-          service.nearbySearch(request, callback);
+              };//end var request
+
+          var request3 = {
+              location: home,
+              keyword: 'Beach',
+              rankBy: google.maps.places.RankBy.PROMINENCE,
+              radius: ['10000']
+              };//end var request
+
+
+
+            service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request1, callback);
+            service.nearbySearch(request2, callback);
+            service.nearbySearch(request3, callback);
+
 
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -66,7 +93,7 @@
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
-        var place = results[0];///var place = results[0]; to mark only 1 place
+        var place = results[0];
         createMarkers(place);
       }
     }
@@ -75,11 +102,11 @@
   function createMarkers(place) {
 
       var image = {
-        url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        url: place.icon,
         size: new google.maps.Size(100,100),
         origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
+        anchor: new google.maps.Point(0, 0),
+        scaledSize: new google.maps.Size(30, 30)
       }
 
       var marker = new google.maps.Marker({
@@ -95,15 +122,25 @@
       infowindow.open(marker.get('map'), marker);
       });
 
-      var myGoal = '<p><a id ="Task1" href="task1" class="btn btn-info btn-lg" aria-hidden="true">Goal 1</a>'+ '<br></br>'+
-               '<a id ="Task2" href="goal2" class="btn btn-info btn-lg" aria-hidden="true">Goal 2</a>'+ '<br></br>'+
-                '<a id ="Task3" href="#" class="btn btn-info btn-lg" aria-hidden="true"></span>Goal 3</a>' +'</p>';
+      var myParkGoals = '<p><a id ="Task1" href="task1" class="btn btn-info btn-lg" aria-hidden="true">Goal 1</a>'+ '<br></br>'+
+          '<a id ="Task2" href="goal2" class="btn btn-info btn-lg" aria-hidden="true">Goal 2</a>'+ '<br></br>'+
+          '<a id ="Task3" href="#" class="btn btn-info btn-lg" aria-hidden="true"></span>Goal 3</a>' +'</p>';
+      var myMallGoals = '<p><a id ="Task4" href="#" class="btn btn-info btn-lg" aria-hidden="true">Goal 4</a>'+ '<br></br>'+
+          '<a id ="Task5" href="#" class="btn btn-info btn-lg" aria-hidden="true">Goal 5</a>'+ '<br></br>'+
+          '<a id ="Task6" href="#" class="btn btn-info btn-lg" aria-hidden="true"></span>Goal 6</a>' +'</p>';
+
+      var myBeachGoals = '<p><a id ="Task7" href="task1" class="btn btn-info btn-lg" aria-hidden="true">Goal 7</a>'+ '<br></br>'+
+          '<a id ="Task8" href="#" class="btn btn-info btn-lg" aria-hidden="true">Goal 8</a>'+ '<br></br>'+
+          '<a id ="Task9" href="#" class="btn btn-info btn-lg" aria-hidden="true"></span>Goal 9</a>' +'</p>';
 
 
-      var infowindow = new google.maps.InfoWindow({
-        content: myGoal
-      });
-    }//end function
+
+    var infowindow = new google.maps.InfoWindow({
+      content: myParkGoals
+    });
+  }//end function
+
+
 </script>
 
 <body>
