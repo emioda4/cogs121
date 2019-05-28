@@ -40,3 +40,11 @@ exports.goal2 = function(req, res){
 exports.goal7 = function(req, res){
   res.render('goal7');
 };
+
+exports.goal8 = function(req, res){
+  res.render('goal8');
+};
+
+exports.goal9 = function(req, res){
+  res.render('goal9');
+};

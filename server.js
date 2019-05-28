@@ -45,6 +45,8 @@ app.get('/goal1camera', index.goal1camera)
 app.get('/goal2', index.goal2)
 app.get('/login', index.login)
 app.get('/goal7', index.goal7)
+app.get('/goal8', index.goal8)
+app.get('/goal9', index.goal9)
 
 app.use(express.static('views'));
 
