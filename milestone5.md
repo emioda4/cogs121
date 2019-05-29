@@ -65,10 +65,25 @@ Rewards
 
 explanation of how your UI's screenshots have improved 
 
-This week we were able to finish the rest of the goals for the 3 different locations (mall, park, and beach). We also updated the start page to include a sign up feature rather than just the simple login so users can create a new account if they do not have one yet. We also updated the styling on the rewards page and included some actual rewards that users can redeem their points for within the app. We created a new homepage where it takes in the current user on the app and says "Hello", as well as a logout button on that page. Finally, we added "Your points:" at the top of the task overview page with the map so that the user can see their current points when looking at goals they can complete.
+This week we were able to finish the rest of the goals for the 3 different locations (mall, park, and beach). We also updated the start page to include a sign up feature rather than just the simple login so users can create a new account if they do not have one yet. Besides park,we added beach and mall locations that include new goals. We also updated the styling on the rewards page and included some actual rewards that users can redeem their points for within the app. We created a new homepage where it takes in the current user on the app and says "Hello", as well as a logout button on that page. Finally, we added "Your points:" at the top of the task overview page with the map so that the user can see their current points when looking at goals they can complete.
  
 screenshots of how your data is displayed or visualized within your app. Include these as separate screenshots in addition to the general UI screenshots in rubric item 2
  
+Once a user sign up, the name, password and number of points are posted into database. On home page user name is displayed. On the goal overview page we have total points displayed. We also have a pin on the current user location and 3 different locations nearby retrieved using Google API.
+
+Home
+
+
+<img src="home-5.png" width="300" height="500" />
+
+
+Goal Overview
+
+
+<img src="map-5.png" width="300" height="500" />
+
+
+
 written explanation of how you implemented your data display or visualizations, such as which libraries/frameworks you used (if any), how you hooked up to data APIs or databases, etc
 
 We hooked up to the google maps API to be able to find and display the different locations within our app. We also use a database to store the amount of points accumulated by the user every time they complete a task and display these points on the rewards page.
