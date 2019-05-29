@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+
+<script src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+// jQuery convention for running when the document has been fully loaded:
+$(document).ready(() => {
+  $('#insertButton').click(() => {
+    $.ajax({
+      // all URLs are relative to http://localhost:3000/
+      url: 'users',
+      type: 'POST', // <-- this is POST, not GET
+      data: {
+              name: $('#insertNameBox').val(),
+              password: $('#insertPasswordBox').val(),
+              points: $('#points').val()
+            },
+      success: (data) => {
+      window.location='/home';
+        $('#status').html(data.message);
+          console.log("You inserted new data: Name "+ data.name +' Password ' + data.password +' Points ' +data.points);
+      }
+    });
+    });
+
+    $(document).ajaxError(() => {
+      $('#status').html('Error: unknown ajaxError!');
+    });
+    });
+    </script>
+
+
+</head>
+
+
+<body>
+  <div class="header" id="homepage">
+    <h1>Play Pal</h1>
+  </div>
+  <br></br>
+  <center><form id="signUpForm"  action="/users">
+        <h1>Sign Up</h1>
+        <hr>
+    Nickname:<br><input id="insertNameBox" type="text" placeholder="Enter Your Nickname"><br><br>
+    Password:<br><input id="insertPasswordBox" type="password" placeholder="Enter Password"><br><br>
+          <button id="cancelButton" type="button"  class="cancelbtn">Cancel</button>
+          <button id="insertButton" type="submit" class="signupbtn">Sign Up</button>
+          <br><br><br>
+          </hr>
+          <p> Are you a member? </p>
+          <div class="pill-nav">
+          <a href="login">Login</a>
+          </div>
+          <br><div id="nameDiv"></div>
+          <br><div id="pointsDiv"></div>
+          <br><div id="status"></div>
+    </form></center>
+</body>
+</html>

@@ -34,13 +34,13 @@ app.get('/Tasks_page', (req, res) => {
 //});
 
 
-app.get('/', index.home)
-app.get('/task1', index.task1)
+app.get('/', index.start)
+app.get('/goal1', index.goal1)
 app.get('/task_overview', index.task_overview)
 app.get('/tasks_page', index.tasks_page)
 app.get('/howToPlay', index.howToPlay)
 app.get('/rewards', index.rewards)
-app.get('/tasks', index.tasks)
+app.get('/home', index.home)
 app.get('/goal1camera', index.goal1camera)
 app.get('/goal2', index.goal2)
 app.get('/goal3', index.goal3)

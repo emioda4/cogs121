@@ -6,8 +6,8 @@ exports.task_overview = function(req, res){
   res.render('task_overview');
 };
 
-exports.task1 = function(req, res){
-  res.render('task1');
+exports.goal1 = function(req, res){
+  res.render('goal1');
 };
 
 exports.tasks_page = function(req, res){
@@ -22,8 +22,8 @@ exports.rewards = function(req, res){
   res.render('rewards');
 };
 
-exports.tasks = function(req, res){
-  res.render('tasks');
+exports.start = function(req, res){
+  res.render('start');
 };
 
 exports.goal1camera = function(req, res){

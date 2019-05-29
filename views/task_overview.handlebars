@@ -153,6 +153,24 @@
        }//end if statement
   }//end function
 
+</script>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    //code to display current number of points when the page loads
+    $(document).ready(() => {
+      console.log("Working!");
+       $.ajax({
+        url: '/points',
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => {
+          console.log('You recieved some data!', data);
+          $('#currentPoints').html('Your points: ' + data.points);
+     }
+   })
+});
+
 
 </script>
 
@@ -160,11 +178,10 @@
   <div class="header" id="task_overview">
     <h1>Goal Overview</h1>
   </div>
-<br>
+  <h4 id="currentPoints" style="text-align: center"></h4>
 
 <button onclick="goBack()"> Go Back</button>
-<h5 style="text-align: center">Map</h5>
-
+<br><br>
 <div id="map" style="width:100%;height:400px;"></div>
 <!-- <div id="myParkGoals"></div>
 <div id="myMallGoals"></div>
@@ -172,7 +189,7 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaxRdT8G8uKojUzG1PX2OQyeXD-B3T64A&libraries=places&callback=initMap"></script>
 
 <div class="icon-bar">
-  <a href="tasks" ><i class="fa fa-home"></i></a>
+  <a href="home" ><i class="fa fa-home"></i></a>
   <a href="task_overview" class="active"><i class="fa fa-map-pin"></i></a>
   <a href="rewards"><i class="fa fa-trophy"></i></a>
 </div>
