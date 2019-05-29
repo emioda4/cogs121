@@ -18,6 +18,19 @@ Map Overview
 <img src="m5- map.png" width="300" height="500" />
 
 
+Goal 1
+
+<img src=goal1.jpg width="300" height="500" />
+
+Camera Function
+
+<img src="Image 5-22-19 at 10.39 AM.jpg" width="300" height="500" />
+
+Goal Complete
+
+<img src="Image 5-22-19 at 10.40 AM.jpg" width="300" height="500" />
+
+
 Goal 2
 
 <img src="goal 2.png" width="300" height="500" />
