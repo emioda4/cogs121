@@ -1,4 +1,4 @@
-paragraph describing how someone in your target user population would use your app in order to help them achieve relevant goals. Think of this as a storyboard (setting+sequence+satisfaction) except written in a paragraph instead of using drawings.
+--paragraph describing how someone in your target user population would use your app in order to help them achieve relevant goals. Think of this as a storyboard (setting+sequence+satisfaction) except written in a paragraph instead of using drawings.
 
 Our app was designed for children, mainly under the age of 10, to be able to explore the world with their parents and use technology to complete different goals in the real world, rather than just virtually in an app. For example, we have a seven year old child Nick. Nick's mom is concerned that he is too addicted to technology and the ipad so she wants to find a way to combine his love for technology with a desire to want to play and adventure outdoors. She finds and installs Play Pal on the ipad, an interactive game where she can promote exploration around the neighborhood. She then lets Nick login to the app and choose where he wants to explore first. Nick chooses to go to the beach. So his mom drives them both to the beach and they complete the three tasks together, earning points for completing each task. If Nick and his mom are feeling more adventurous, they could venture to the nearby park and complete the tasks there too. Once all the tasks are completed, both Nick and his mom are satisfied with a fun-filled day full of different adventures they were able to explore together. Nick had fun and his mom was able to teach Nick about the amazing things one can find in nature, with the assistance of the technology, but not making it the sole focus. 
 
@@ -94,10 +94,10 @@ Goal Overview
 <img src="map-5.png" width="300" height="500" />
 
 
-Implemented API
+--Implemented API & Database
 
-We hooked up to the google maps API to be able to find and display the different locations within our app. We also use a database to store the amount of points accumulated by the user every time they complete a task and display these points on the rewards page.
+We hooked up to the google maps API to be able to find and display the different locations within our app. First, we used geolocation to find the current location of the user. Then, using Places Library we performed nearbySearch to find places close to the user. The results object returned includes different fields, such as types and icon. We used those icons to place the pin on the map, and types to determine which location goals of certain category needs to be placed. In order to implement Google maps API, including Places Library, we had to obtain API key.
 
-paragraph describing some more ambitious data display or visualization ideas beyond what you've implemented that would make your app more polished
+We also created sqlite3 database by running create_database.js file. We inserted name, password, and points in our playPal.db database. Once a new user sign up, the new data is posted into database with those 3 fields. We store the amount of points accumulated by the user every time they complete a task and display these points on the rewards and goal overview pages.We also have message, including username on the homepage.
   
   
