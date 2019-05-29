@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Goal 8</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+    crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/camera.css">
+	<link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/popup.css">
+
+
+
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		function goBack() {
+	  		window.history.back();
+		}
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(() => {
+			//ajax call to listen to click of completeBtn and send something to backend
+			$('#addPointsButton').click(() => {
+				console.log('clicked')
+				$.ajax({
+					url: '/addPoints',
+					type: 'POST',
+					data: {
+									addedPoints: 10,
+								},
+					success: (data) => {
+										window.location="/task_overview";
+						console.log('you received some data!' + data);
+					}
+				});
+			});
+		});
+
+
+	</script>
+
+</head>
+
+<body>
+	<div class="header">
+		<h1>Goal 8</h1>
+	</div>
+	<br>
+	<button onclick="goBack()"> Go Back</button>
+	<div>
+        <center>
+		<h4 id="show" style="text-align: center">Build a sandcastle</h4><br>
+		<img src="sandcastle.jpg" style="width:70%"></img>
+    <br><br><br><br>
+		<div>
+			<button class="completeStyle" id="addPointsButton">Complete to earn 10 Pts!</button>
+		</div>
+        </center>
+		<div id="points"></div>
+
+	</div><br><br><br><br><br><br>
+
+	<div class="icon-bar">
+		<a href="tasks"><i class="fa fa-home"></i></a>
+		<a href="task_overview"><i class="fa fa-map-pin"></i></a>
+		<a href="rewards"><i class="fa fa-trophy"></i></a>
+	</div>
+
+</body>
+</html>

@@ -8,9 +8,9 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
     crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/css/camera.css"> 
-	<link rel="stylesheet" href="/css/layout.css"> 
-	<link rel="stylesheet" href="/css/popup.css"> 
+	<link rel="stylesheet" href="/css/camera.css">
+	<link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/popup.css">
 
 
 	<script src="jquery-3.3.1.min.js"></script>
@@ -23,7 +23,7 @@
 	<script type="text/javascript">
 		$(document).ready(() => {
 			// Prefer camera resolution nearest to 1280x720.
-			// const constraints = { audio: true, video: { width: 1280, height: 720 } }; 
+			// const constraints = { audio: true, video: { width: 1280, height: 720 } };
 			navigator.mediaDevices.getUserMedia(constraints)
 			.then(function(mediaStream) {
 	  		const video = document.querySelector('video');
@@ -68,11 +68,12 @@
 		            	addedPoints: 10,
 		            },
 					success: (data) => {
+                    window.location="/task_overview";
 						console.log('you received some data!' + data);
 					}
 				});
 			});
-		});	
+		});
 
 
 		var constraints = { video: { facingMode: "user" }, audio: false };
@@ -123,7 +124,7 @@
 	  document.getElementById('two').style.visibility = 'hidden';
 	}
 
-			
+
 	</script>
 
 </head>
@@ -150,7 +151,7 @@
 		</div>
 
 		<h4 id="show" style="text-align: center"></h4><br>
-		
+
         <center>
 		<div>
 			<button class="completeStyle" id="addPointsButton">Complete to earn 10 Pts!</button>
@@ -175,7 +176,7 @@
        background-color: #E84646;
        border-radius:10px;
        left:55%;
-       margin: -20px -50px; 
+       margin: -20px -50px;
        position:relative;
     }
 
@@ -185,7 +186,7 @@
 		font-size:25px;
 		color: white;
         left:50%;
-        margin: -10% -20%; 
+        margin: -10% -20%;
         padding:3%;
         padding-right: 4%;
         padding-left: 4%;

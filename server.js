@@ -42,7 +42,16 @@ app.get('/howToPlay', index.howToPlay)
 app.get('/rewards', index.rewards)
 app.get('/tasks', index.tasks)
 app.get('/goal1camera', index.goal1camera)
+app.get('/goal2', index.goal2)
+app.get('/goal3', index.goal3)
+app.get('/goal4', index.goal4)
+app.get('/goal5', index.goal5)
+app.get('/goal6', index.goal6)
 app.get('/login', index.login)
+app.get('/goal7', index.goal7)
+app.get('/goal8', index.goal8)
+app.get('/goal9', index.goal9)
+
 app.use(express.static('views'));
 
 const sqlite3 = require('sqlite3');
@@ -69,6 +78,7 @@ app.get('/users', (req, res) => {
 // use this library to parse HTTP POST requests
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
+app.use(bodyParser.json());
 app.post('/users', (req, res) => {
   console.log(req.body);
 

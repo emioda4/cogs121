@@ -8,8 +8,11 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/layout.css">
-  <script src="jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="/css/layout.css">
+
+
+
+<script src="jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
     //code to display current number of points when the page loads
     $(document).ready(() => {
@@ -27,10 +30,73 @@
 
 
 </script>
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("Rewards Background.png");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrbutton{
+  background-color: #FFFFFF; 
+  border: 2px solid #E1E1E1;
+  border-radius: 8px;
+  color: #E1E1E1;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+
+.prbutton{
+  background-color: #FFCDFF; 
+  border: 2px solid #FFB6FF;
+  border-radius: 8px;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+
+.purbutton{
+  background-color: #D7DEFF; 
+  border: 2px solid #D2D2FF;
+  border-radius: 8px;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+</style>
+
 </head>
 
 
-<body>
+<body background= "Rewards Background.png">
   <div class="header" id="rewards">
     <h1>Rewards</h1>
   </div>
@@ -45,60 +111,57 @@
     </script>
 
 		<div class="container">
-			
 
+			<center>
 			<h2><div id = "pointsDiv"></div></h2>
-			
+            </center>
 
-			<a id="totalRewards" value = 0 ></a>
-		
-<!--
-		<script>
-		var totalRewards = document.getElementById("totalRewards")
-		totalRewards.innerHTML = totalRewards+10 +"%";
-		</script>
+         <div class = "whiteButtons1">
+            <p style="font-size:25px; padding: 0px 5px;">Clothes</p>
+         	<center>
+         	<button class="wrbutton button1">100 Pts</button>
+            <button class="wrbutton button2">200 Pts</button>
+            <button class="wrbutton button3">300 Pts</button>
+            <button class="wrbutton button4">400 Pts</button>
+            </center>
+         </div>
 
-		<div class="progress">
-			<div class="progress-bar active" role="progressbar" aria-valuenow=totalRewards
-			aria-valuemin="0"  aria-valuemax="100" style="width:10%">
+
+         <br>
+         <div class = "pinkButtons1">
+            <p style="font-size:25px; padding: 0px 5px;">Toys</p>
+         	<center>
+         	<button class="prbutton button1">100 Pts</button>
+            <button class="prbutton button2">200 Pts</button>
+            <button class="prbutton button3">300 Pts</button>
+            <button class="prbutton button4">400 Pts</button>
+            </center>
+         </div>
+
+         <br>
+         <div class = "purpleButtons1">
+            <p style="font-size:25px; padding: 0px 5px;">Pets</p>
+         	<center>
+         	<button class="purbutton button1">100 Pts</button>
+            <button class="purbutton button2">200 Pts</button>
+            <button class="purbutton button3">300 Pts</button>
+            <button class="purbutton button4">400 Pts</button>
+            </center>
+         </div>
+
+
+            
+
+
+</div>
+			<div class="icon-bar">
+				<a href="tasks"><i class="fa fa-home"></i></a>
+				<a href="task_overview"><i class="fa fa-map-pin"></i></a>
+				<a href="rewards" class="active"><i class="fa fa-trophy"></i></a>
 			</div>
-		</div>
-		</div>
 
 
-	<div class="icon-bar">
-		<a href="tasks"><i class="fa fa-home"></i></a>
-		<a href="task_overview"><i class="fa fa-map-pin"></i></a>
-		<a href="rewards" class="active"><i class="fa fa-trophy"></i></a>
-	</div-->
+</body>
 
-	<style>
-	body {margin:0;}
-	.icon-bar {
-	background-color: #008080;
-	overflow: hidden;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
 
-	}
-
-	.icon-bar a {
-	float: left;
-	width: 33.3%;
-	text-align: center;
-	padding: 12px 10px;
-	transition: all 0.3s ease;
-	color: white;
-	font-size: 36px;
-	}
-
-	.icon-bar a:hover {
-	background-color: #5ccc8f;
-	}
-
-	.active {
-	background-color: #7accae;
-	}
-</style>
 </html>

@@ -52,3 +52,14 @@ color: black;
 }
 
 
+    .completeStyle {
+		background-color: lightblue;
+		border-radius:10px;
+		font-size:25px;
+		color: white;
+        left:50%;
+        margin: -10% -20%;
+        padding:3%;
+        padding-right: 4%;
+        padding-left: 4%;
+    }
