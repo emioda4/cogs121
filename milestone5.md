@@ -4,53 +4,56 @@ screenshots of your latest UI webpages
 
 Home Page
 
-<img src="m5- home" width="300" height="500" />
+<img src="m5- home.png" width="300" height="500" />
 
 Map Overview
 
-<img src="m5- map" width="300" height="500" />
+<img src="m5- map.png" width="300" height="500" />
 
 
 Goal 2
 
-<img src="goal 2" width="300" height="500" />
+<img src="goal 2.png" width="300" height="500" />
 
 
 Goal 3
 
-<img src="m5- goal 3" width="300" height="500" />
+<img src="m5- goal 3.png" width="300" height="500" />
 
 
 Goal 4
 
-<img src="m5- goal 4" width="300" height="500" />
+<img src="m5- goal 4.png" width="300" height="500" />
 
 
 Goal 5
 
-<img src="m5- goal 5" width="300" height="500" />
+<img src="m5- goal 5.png" width="300" height="500" />
 
 
 Goal 6
 
-<img src="m5- goal 6" width="300" height="500" />
+<img src="m5- goal 6.png" width="300" height="500" />
 
 
 Goal 7
 
-<img src="m5- goal 7" width="300" height="500" />
+<img src="m5- goal 7.png" width="300" height="500" />
 
 
 Goal 8
 
-<img src="m5- goal 8" width="300" height="500" />
+<img src="m5- goal 8.png" width="300" height="500" />
 
 
 Goal 9
 
-<img src="m5- goal 9" width="300" height="500" />
+<img src="m5- goal 9.png" width="300" height="500" />
 
 
+Rewards
+
+<img src="m5- rewards.png" width="300" height="500" />
 
 
 
