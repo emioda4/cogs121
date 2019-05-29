@@ -30,10 +30,73 @@
 
 
 </script>
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("Rewards Background.png");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrbutton{
+  background-color: #FFFFFF; 
+  border: 2px solid #E1E1E1;
+  border-radius: 8px;
+  color: #E1E1E1;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+
+.prbutton{
+  background-color: #FFCDFF; 
+  border: 2px solid #FFB6FF;
+  border-radius: 8px;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+
+.purbutton{
+  background-color: #D7DEFF; 
+  border: 2px solid #D2D2FF;
+  border-radius: 8px;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+</style>
+
 </head>
 
 
-<body>
+<body background= "Rewards Background.png">
   <div class="header" id="rewards">
     <h1>Rewards</h1>
   </div>
@@ -49,11 +112,46 @@
 
 		<div class="container">
 
-
+			<center>
 			<h2><div id = "pointsDiv"></div></h2>
+            </center>
+
+         <div class = "whiteButtons1">
+            <p style="font-size:25px; padding: 0px 5px;">Clothes</p>
+         	<center>
+         	<button class="wrbutton button1">100 Pts</button>
+            <button class="wrbutton button2">200 Pts</button>
+            <button class="wrbutton button3">300 Pts</button>
+            <button class="wrbutton button4">400 Pts</button>
+            </center>
+         </div>
 
 
-			<a id="totalRewards" value = 0 ></a>
+         <br>
+         <div class = "pinkButtons1">
+            <p style="font-size:25px; padding: 0px 5px;">Toys</p>
+         	<center>
+         	<button class="prbutton button1">100 Pts</button>
+            <button class="prbutton button2">200 Pts</button>
+            <button class="prbutton button3">300 Pts</button>
+            <button class="prbutton button4">400 Pts</button>
+            </center>
+         </div>
+
+         <br>
+         <div class = "purpleButtons1">
+            <p style="font-size:25px; padding: 0px 5px;">Pets</p>
+         	<center>
+         	<button class="purbutton button1">100 Pts</button>
+            <button class="purbutton button2">200 Pts</button>
+            <button class="purbutton button3">300 Pts</button>
+            <button class="purbutton button4">400 Pts</button>
+            </center>
+         </div>
+
+
+            
+
 
 </div>
 			<div class="icon-bar">
