@@ -101,3 +101,6 @@ We hooked up to the google maps API to be able to find and display the different
 We also created sqlite3 database by running create_database.js file. We inserted name, password, and points in our playPal.db database. Once a new user sign up, the new data is posted into database with those 3 fields. We store the amount of points accumulated by the user every time they complete a task and display these points on the rewards and goal overview pages.We also have message, including username on the homepage.
   
   
+  
+  --Ambitious data display or visualization ideas
+  
