@@ -5,9 +5,13 @@ Our app was designed for children, mainly under the age of 10, to be able to exp
 
 screenshots of your latest UI webpages 
 
-Home Page
+Sign-up/login Page
 
 <img src="m5- home.png" width="300" height="500" />
+
+Home page
+
+<img src="m5- home2.png" width="300" height="500" />
 
 Map Overview
 
@@ -61,7 +65,7 @@ Rewards
 
 explanation of how your UI's screenshots have improved 
 
-This week we were able to finish the rest of the goals for the 3 different locations (mall, park, and beach). We also updated the home page to include a sign up feature rather than just the simple login so users can create a new account if they do not have one yet. We also updated the styling on the rewards page and included some actual rewards that users can redeem their points for within the app. 
+This week we were able to finish the rest of the goals for the 3 different locations (mall, park, and beach). We also updated the start page to include a sign up feature rather than just the simple login so users can create a new account if they do not have one yet. We also updated the styling on the rewards page and included some actual rewards that users can redeem their points for within the app. We created a new homepage where it takes in the current user on the app and says "Hello", as well as a logout button on that page.
  
 screenshots of how your data is displayed or visualized within your app. Include these as separate screenshots in addition to the general UI screenshots in rubric item 2
  
