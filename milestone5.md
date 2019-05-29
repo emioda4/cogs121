@@ -98,7 +98,7 @@ Goal Overview
 
 We hooked up to the google maps API to be able to find and display the different locations within our app. First, we used geolocation to find the current location of the user. Then, using Places Library we performed nearbySearch to find places close to the user. The results object returned includes different fields, such as types and icon. We used those icons to place the pin on the map, and types to determine which location goals of certain category needs to be placed. In order to implement Google maps API, including Places Library, we had to obtain API key.
 
-We also created sqlite3 database by running create_database.js file. We inserted name, password, and points in our playPal.db database. Once a new user sign up, the new data is posted into database with those 3 fields. We store the amount of points accumulated by the user every time they complete a task and display these points on the rewards and goal overview pages.We also have message, including username on the homepage.
+We also created sqlite3 database by running create_database.js file. We inserted name, password, and points in the table in our playPal.db database. Once a new user sign up, the new data is posted into database with those 3 fields. We store the amount of points accumulated by the user every time they complete a task and display these points on the rewards and goal overview pages.We also have message, including username on the homepage.
   
   
   
