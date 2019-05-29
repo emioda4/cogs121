@@ -23,17 +23,6 @@ app.get('/Tasks_page', (req, res) => {
   res.send(pageName);
 });
 
-//Login Request
-//app.get('/login', (req, res) => {
-//  const allLogins = Object.keys(ourFakeDatabase);
-  //let randomLoginID = Math.floor(Math.random()*allLogins.length); // returns a list of object keys
-//  const usedLogin = allLogins[randomLoginID];
-//  const loginToSend =  ourFakeDatabase[usedLogin];
-//  console.log('attempting to send user: ' + loginToSend);
-//  res.send(loginToSend);
-//});
-
-
 app.get('/', index.start)
 app.get('/goal1', index.goal1)
 app.get('/task_overview', index.task_overview)
@@ -57,12 +46,6 @@ app.use(express.static('views'));
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('playPal.db');
 
-//getting initial point value from the database
- //let currentPoints =
- //db.all('SELECT points FROM points_to_playPal', (err, rows) => {
-//	console.log('points are ' + (rows[0].points));
-//	return rows[0].points;
-// });
 
 app.get('/users', (req, res) => {
   db.all('SELECT name FROM users_to_playPal', (err, rows) =>{
@@ -84,12 +67,12 @@ app.post('/users', (req, res) => {
 
 
   db.run(
-    'INSERT INTO users_to_playPal VALUES ($name, $password)',
+    'INSERT INTO users_to_playPal VALUES ($name, $password, $points)',
     // parameters to SQL query:
     {
       $name: req.body.name,
       $password: req.body.password,
-      $points:  req.body.points,
+      $points:  0,
     },
     // callback function to run when the query finishes:
     (err) => {
@@ -133,7 +116,8 @@ app.get('/users/:userid', (req, res) => {
 
 //rewards retrival code
 app.get('/points', (req, res) => {
-	db.all('SELECT points FROM points_to_playPal',
+	db.all(
+   'SELECT points FROM users_to_playPal',
 
 		(err, rows) => {
 			console.log(rows);
@@ -150,7 +134,7 @@ app.get('/points', (req, res) => {
 app.post('/addPoints', (req, res) => {
   console.log(req.body);
   db.run(
-    'UPDATE points_to_playPal SET points = points + $addedPoints',
+    'UPDATE users_to_playPal SET points = points + $addedPoints',
     // parameters to SQL query:
     {
       $addedPoints: req.body.addedPoints
