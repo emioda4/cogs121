@@ -18,6 +18,7 @@ $(document).ready(() => {
   $('#readButton').click(() => {
     const requestURL = 'users/' + $('#nameBox').val();
     const userNickname = document.getElementById('nameBox').value;
+    const userPassword = document.getElementById('passwordBox').value;
     console.log('making ajax request to:', requestURL);
     $.ajax({
       // all URLs are relative to http://localhost:3000/
@@ -26,10 +27,11 @@ $(document).ready(() => {
       dataType : 'json', // this URL returns data in JSON format
       success: (data) => {
         console.log('You received some data!');
-        if (data.name == userNickname) {
+        if (data.name == userNickname && data.password == userPassword) {
          window.location='/home';
         } else {
-          $('#status').html('Error: could not find user at URL: ' + requestURL);
+          //$('#status').html('Error: could not find user at URL: ' + requestURL);
+         alert('Invalid username or password');
         }
       },
     });
