@@ -16,8 +16,9 @@
   <script type="text/javascript">
     //code to display current number of points when the page loads
     $(document).ready(() => {
-   console.log("Working!");
-   $.ajax({
+    
+    console.log("Working!");
+    $.ajax({
    	url: '/points',
    	type: 'GET',
    	dataType: 'json',
@@ -26,10 +27,621 @@
    		$('#pointsDiv').html('Total Points: ' + data.points);
    	 }
    })
+   //Code to display what has already been purchased.
+   $.ajax({
+    url: '/currentRewards',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+      const buttonIDs = ['w10','w20', 'w30', 'w40', 'p10', 'p20', 'p30', 'p40', 'pu10', 'pu20', 'pu30', 'pu40'];
+      console.log('You recieved some data!', data);
+      for (let i = 0; i < buttonIDs.length; i++){
+        if(data[i] == 1){
+          document.getElementById(buttonIDs[i]).disabled = true;
+          document.getElementById(buttonIDs[i]).style.backgroundColor = "gray" ;
+          console.log('reward ' + buttonIDs[i] + ' has been purchased.')
+
+        }
+       else{
+        console.log('reward ' + buttonIDs[i] + ' is still purchaseable.')
+       }
+      }
+     }
+   })
+
+   
+
+//Rewards Buttons Code
+$('#w10').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 10){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 10,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'w10',
+                   },
+                   success: (data) => {
+                  document.getElementById("w10").disabled = true;
+                  document.getElementById("w10").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#w20').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 20){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 20,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'w20',
+                   },
+                   success: (data) => {
+                  document.getElementById("w20").disabled = true;
+                  document.getElementById("w20").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#w30').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 30){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 30,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'w30',
+                   },
+                   success: (data) => {
+                  document.getElementById("w30").disabled = true;
+                  document.getElementById("w30").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#w40').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 40){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 40,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'w40',
+                   },
+                   success: (data) => {
+                  document.getElementById("w40").disabled = true;
+                  document.getElementById("w40").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#p10').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 10){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 10,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'p10',
+                   },
+                   success: (data) => {
+                  document.getElementById("p10").disabled = true;
+                  document.getElementById("p10").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#p20').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 20){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 20,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'p20',
+                   },
+                   success: (data) => {
+                  document.getElementById("p20").disabled = true;
+                  document.getElementById("p20").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#p30').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 30){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 30,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'p30',
+                   },
+                   success: (data) => {
+                  document.getElementById("p30").disabled = true;
+                  document.getElementById("p30").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#p40').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 40){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 40,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'p40',
+                   },
+                   success: (data) => {
+                  document.getElementById("p40").disabled = true;
+                  document.getElementById("p40").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+$('#pu10').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 10){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 10,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'pu10',
+                   },
+                   success: (data) => {
+                  document.getElementById("pu10").disabled = true;
+                  document.getElementById("pu10").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#pu20').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 20){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 20,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'pu20',
+                   },
+                   success: (data) => {
+                  document.getElementById("pu20").disabled = true;
+                  document.getElementById("pu20").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#pu30').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 30){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 30,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'pu30',
+                   },
+                   success: (data) => {
+                  document.getElementById("pu30").disabled = true;
+                  document.getElementById("pu30").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+
+$('#pu40').click(() => {
+   console.log('clicked')
+   $.ajax({
+    url: '/points',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+    console.log('You recieved some data!', data);
+          if (data.points >= 40){
+              $.ajax({
+              url: '/removePoints',
+              type: 'POST',
+              data: {
+              lostPoints: 40,
+                    },
+              success: (data) => {
+                   $.ajax({
+                   url: '/addReward',
+                   type: 'POST',
+                   data: {
+                   rewardID: 'pu40',
+                   },
+                   success: (data) => {
+                  document.getElementById("pu40").disabled = true;
+                  document.getElementById("pu40").style.backgroundColor = "gray" ;
+                  console.log('you received some data!' + data);
+                  }
+                 })
+
+                   $.ajax({
+                   url: '/points',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: (data) => {
+                   console.log('You recieved some data!', data);
+                   $('#pointsDiv').html('Total Points: ' + data.points);
+                     }
+                    })
+                    console.log('you received some data!' + data);
+                    }
+                });
+              }
+          else{
+            console.log('not enough points to purchase');
+              }
+              }
+            })
+  });
+//End of Button Code
 });
-
-
 </script>
+
 
 <style>
 body, html {
@@ -119,10 +731,10 @@ body, html {
          <div class = "whiteButtons1">
             <p style="font-size:25px; padding: 0px 5px;">Clothes</p>
          	<center>
-         	<button class="wrbutton button1">100 Pts</button>
-            <button class="wrbutton button2">200 Pts</button>
-            <button class="wrbutton button3">300 Pts</button>
-            <button class="wrbutton button4">400 Pts</button>
+         	<button class="wrbutton button1" id ="w10">10 Pts</button>
+            <button class="wrbutton button2" id ="w20">20 Pts</button>
+            <button class="wrbutton button3" id ="w30">30 Pts</button>
+            <button class="wrbutton button4" id ="w40">40 Pts</button>
             </center>
          </div>
 
@@ -131,10 +743,10 @@ body, html {
          <div class = "pinkButtons1">
             <p style="font-size:25px; padding: 0px 5px;">Toys</p>
          	<center>
-         	<button class="prbutton button1">100 Pts</button>
-            <button class="prbutton button2">200 Pts</button>
-            <button class="prbutton button3">300 Pts</button>
-            <button class="prbutton button4">400 Pts</button>
+         	<button class="prbutton button1" id ="p10">10 Pts</button>
+            <button class="prbutton button2" id = "p20">20 Pts</button>
+            <button class="prbutton button3" id = "p30">30 Pts</button>
+            <button class="prbutton button4" id = "p40">40 Pts</button>
             </center>
          </div>
 
@@ -142,10 +754,10 @@ body, html {
          <div class = "purpleButtons1">
             <p style="font-size:25px; padding: 0px 5px;">Pets</p>
          	<center>
-         	<button class="purbutton button1">100 Pts</button>
-            <button class="purbutton button2">200 Pts</button>
-            <button class="purbutton button3">300 Pts</button>
-            <button class="purbutton button4">400 Pts</button>
+         	<button class="purbutton button1" id ="pu10">10 Pts</button>
+            <button class="purbutton button2" id = "pu20">20 Pts</button>
+            <button class="purbutton button3" id = "pu30">30 Pts</button>
+            <button class="purbutton button4" id = "pu40">40 Pts</button>
             </center>
          </div>
 
