@@ -159,14 +159,15 @@
 <script type="text/javascript">
     //code to display current number of points when the page loads
     $(document).ready(() => {
-      console.log("Working!");
+      let currentUser = sessionStorage.getItem("currentUser");
+       const myURL = 'users/' + currentUser;
        $.ajax({
-        url: '/points',
+        url: myURL,
         type: 'GET',
         dataType: 'json',
         success: (data) => {
-          console.log('You recieved some data!', data);
-          $('#currentPoints').html('Your Points: ' + data.points);
+          console.log('task overview points', data.points);
+          $('#pointsDiv').html('Your Points: ' + data.points);
      }
    })
 });
@@ -178,11 +179,8 @@
   <div class="header" id="task_overview">
     <h1>Goal Overview</h1>
   </div>
-  <h4 id="currentPoints" style="text-align: center; font-size:32px; padding: 5px;"></h4>
+  <h4 id="pointsDiv" style="text-align: center; font-size:32px; padding: 5px;"></h4>
 <div id="map" style="width:100%;height:410px;"></div>
-<!-- <div id="myParkGoals"></div>
-<div id="myMallGoals"></div>
-<div id="myBeachGoals"></div> -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaxRdT8G8uKojUzG1PX2OQyeXD-B3T64A&libraries=places&callback=initMap"></script>
 
 <div class="icon-bar">
@@ -190,6 +188,5 @@
   <a href="task_overview" class="active"><i class="fa fa-map-pin"></i></a>
   <a href="rewards"><i class="fa fa-trophy"></i></a>
 </div>
-
 </body>
 </html>

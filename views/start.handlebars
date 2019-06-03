@@ -13,30 +13,36 @@ crossorigin="anonymous">
 
 <script src="jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-// jQuery convention for running when the document has been fully loaded:
-$(document).ready(() => {
-  $('#insertButton').click(() => {
-    $.ajax({
-      // all URLs are relative to http://localhost:3000/
-      url: 'users',
-      type: 'POST', // <-- this is POST, not GET
-      data: {
-              name: $('#insertNameBox').val(),
-              password: $('#insertPasswordBox').val(),
-              points: $('#points').val()
-            },
-      success: (data) => {
-      window.location='/home';
-        $('#status').html(data.message);
-          console.log("You inserted new data: Name "+ data.name +' Password ' + data.password +' Points ' +data.points);
-      }
-    });
-    });
 
-    $(document).ajaxError(() => {
-      $('#status').html('Error: unknown ajaxError!');
-    });
-    });
+    // jQuery convention for running when the document has been fully loaded:
+    $(document).ready(() => {
+      $('#insertButton').click(() => {
+           sessionStorage.setItem("currentUser", "");
+        const newUser = $('#insertNameBox').val();
+         const newPassword = $('#insertPasswordBox').val();
+         const newPoints = $('#pointsDiv').val();
+        $.ajax({
+          // all URLs are relative to http://localhost:3000/
+          url: 'users',
+          type: 'POST', // <-- this is POST, not GET
+          data: {
+                  name: $('#insertNameBox').val(),
+                  password: $('#insertPasswordBox').val(),
+                  //points: $('#pointsDiv').val(),
+                   points: 0,
+                },
+          success: (data) => {
+           sessionStorage.setItem("currentUser", newUser);
+          window.location="/home";
+        console.log("You inserted new data: Name "+ data.name +' Password ' + data.password +' Points ' +data.points);
+          }
+        });
+        });
+
+        $(document).ajaxError(() => {
+          $('#status').html('Error: unknown ajaxError!');
+        });
+        });
     </script>
 </head>
 
@@ -58,7 +64,7 @@ $(document).ready(() => {
       <font face="Segoe UI" color="#000000" size ="4" style="position:left; left:20px;" >Password:</font>
      <br><input id="insertPasswordBox" type="password" placeholder="Enter Your Password" style="position:center; width: 320px; left:21px;"><br><br>
 </div></center>
-
+<div id="pointDiv" value=0 ></div>
 <center>
           <button id="insertButton" type="submit" class="signupbtn">Submit</button><br><br>
           <p> Are you a already a member? <a href="login">Login</a></p>
