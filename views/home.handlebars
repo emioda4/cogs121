@@ -21,7 +21,7 @@
           dataType: 'json',
           success: (data) => {
             console.log('You recieved some data!', data);
-            $('#helloUser').html('Hello, ' + data[data.length-1] + '!');
+            $('#helloUser').html('Welcome ' + data[data.length-1] + '!');
            }
          })
       });
@@ -29,27 +29,18 @@
 
 </head>
 
-<body>
-  <div class="header" id="tasks">
-    <h1>Home</h1>
-  </div>
+<body style="background-color:#d0fcce;">
+	<br><br>
+  <center>
 
-	<br>
-<button onclick="goBack()"> Go Back</button>
-
+<img src="PlayPalLogo.png" alt="Main Title" width="365" height="410"></img>
+</center>
 <h2 id="helloUser" style="text-align: center"></h2>
-<a href="/task_overview">
-<img src="playpal.png" style="width:84%; padding-left:18%; padding-top: 5%"></img></a>
-<br><br><br>
+<br>
 <div class="logoutBtn">
   <a href="/">Log out</a>
 </div>
 
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
 	<br><br>
 	<br><br>
 

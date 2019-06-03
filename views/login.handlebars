@@ -41,28 +41,34 @@ $(document).ready(() => {
       });
       });
       </script>
+      <script>
+		function goSignUp() {
+	  		window.location="/";
+		}
+	</script>
 
 </head>
 
-  <body>
-
-    <div class="header" id="login">
-      <h1>Play Pal</h1>
-    </div>
-
-    <br><br>
+  <body style="background-color:#d0fcce;">
+      <center>
+      <img src="PlayPalLogo.png" alt="Main Title" width="290" height="320"></img>
+  	  </center>
 <center><form id="logInForm">
-  <h1>Log In</h1>
-  <hr><br><br>
-    Nickname:<br><input id="nameBox" type="text" placeholder="Enter Your Nickname"><br><br>
-    Password:<br><input id="passwordBox" type="password" placeholder="Enter Your Password"><br>
-     <br><button id="readButton" type="submit" href="home"> Login</button>
-     <br><div id="nameDiv"></div>
-     <br><div id="pointsDiv"></div>
-     <br><div id="status"></div>
-
-
-</form></center>
+  <h1><font face="Segoe UI" color="#65b473" size ="7">Login</font></h1>
+</center>
+    <font face="Segoe UI" color="#000000" size ="4" style="position:relative; left:20px;" >Username:</font>
+      <br><input id="nameBox" type="text" placeholder="Enter Your Nickname" style="position:relative; width: 320px; left:21px;"><br><br>
+      <font face="Segoe UI" color="#000000" size ="4" style="position:relative; left:20px;" >Password:</font>
+     <br><input id="passwordBox" type="password" placeholder="Enter Your Password" style="position:relative; width: 320px; left:21px;"><br><br>
+     <center>
+     <button id="readButton" type="submit" href="home" style="background-color: #23C162; /* Green */
+  border: 2px solid #65b473; color: #FFFFFF; padding: 15px 60px; text-align: center; text-decoration: none;
+  display: inline-block; font-size: 24px; margin: 4px 2px; cursor: pointer; border-radius: 12px;">
+     Submit</button>
+     </form>
+     <p>Or<button style=  "background-color: #d0fcce; border: none;
+  color: #0066FF;" onClick="goSignUp()">Sign Up</button></p>
+ </center>
 
 </body>
 </html>
