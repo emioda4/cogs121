@@ -29,7 +29,7 @@
         if (data.name == userNickname && data.password == userPassword) {
          sessionStorage.setItem("currentUser", userNickname);
         //const myURL = 'users/' + userNickname;
-        sessionStorage.setItem("currentPoints", data.points);
+        //sessionStorage.setItem("currentPoints", data.points);
          window.location='/home'
         console.log('ajax get name&points request on login page!', data.name, data.points);
 } else {

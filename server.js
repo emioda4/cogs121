@@ -72,8 +72,8 @@ app.post('/users', (req, res) => {
     {
       $name: req.body.name,
       $password: req.body.password,
-      $points: req.body.points,
-      //$points:  0,
+      //$points: req.body.points,
+      $points:  0,
     },
     // callback function to run when the query finishes:
     (err) => {

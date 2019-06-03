@@ -19,18 +19,6 @@
    $('#helloUser').html('Welcome, ' + currentUser + '!');
    console.log('session storage, my name is ', currentUser);
 
-   const myURL= 'users/' + currentUser;
-      $.ajax({
-        url: myURL,
-        type: 'GET',
-        dataType : 'json',
-        success: (data) => {
-
-          $('#pointsDiv').html('You have ' + data.points + ' points!');
-          console.log('ajax get points call home page', data);
-        },
-      });
-
    $('#startButton').click(() => {
      window.location="/task_overview";
    });

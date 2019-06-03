@@ -20,7 +20,7 @@ crossorigin="anonymous">
            sessionStorage.setItem("currentUser", "");
         const newUser = $('#insertNameBox').val();
          const newPassword = $('#insertPasswordBox').val();
-         const newPoints = $('#pointsDiv').val();
+
         $.ajax({
           // all URLs are relative to http://localhost:3000/
           url: 'users',
@@ -28,8 +28,8 @@ crossorigin="anonymous">
           data: {
                   name: $('#insertNameBox').val(),
                   password: $('#insertPasswordBox').val(),
-                  //points: $('#pointsDiv').val(),
-                   points: 0,
+                  points: $('#pointsDiv').val(),
+                   //points: 0,
                 },
           success: (data) => {
            sessionStorage.setItem("currentUser", newUser);
@@ -64,7 +64,7 @@ crossorigin="anonymous">
       <font face="Segoe UI" color="#000000" size ="4" style="position:left; left:20px;" >Password:</font>
      <br><input id="insertPasswordBox" type="password" placeholder="Enter Your Password" style="position:center; width: 320px; left:21px;"><br><br>
 </div></center>
-<div id="pointDiv" value=0 ></div>
+<div id="pointsDiv" style="text-align: center; font-size:32px; padding: 5px;"></div>
 <center>
           <button id="insertButton" type="submit" class="signupbtn">Submit</button><br><br>
           <p> Are you a already a member? <a href="login">Login</a></p>

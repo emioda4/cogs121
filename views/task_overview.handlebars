@@ -160,14 +160,15 @@
     //code to display current number of points when the page loads
     $(document).ready(() => {
       let currentUser = sessionStorage.getItem("currentUser");
-       const myURL = 'users/' + currentUser;
+       const myURL = 'users/'+ currentUser;
        $.ajax({
         url: myURL,
         type: 'GET',
         dataType: 'json',
         success: (data) => {
+
           console.log('task overview points', data.points);
-          $('#pointsDiv').html('Your Points: ' + data.points);
+          $('#pointsDiv').html('You have ' + data.points + ' points!');
      }
    })
 });
