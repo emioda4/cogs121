@@ -52,8 +52,8 @@ color: black;
 }
 
 
-    .completeStyle {
-		background-color: #C4FAF8;
+  .completeStyle {
+		background-color: #23C162;
 		border-radius:10px;
 		font-size:25px;
 		color: black;
@@ -65,12 +65,51 @@ color: black;
         padding-left: 4%;
     }
 
-.logoutBtn a {
+/* .logoutBtn a {
 	display: block;
 	text-align: center;
-	color: #23C162;
+	color: #D5aaff;
 	padding: 14px;
 	text-decoration:none;
 	font-size: 20px;
 	border-radius: 20px;
+} */
+.startBtn {
+  background-color: #23C162; /* Green */
+  border: 2px solid #65b473;
+color: #FFFFFF;
+padding: 20px 60px;
+text-align: center;
+text-decoration: none;
+  display: inline-block;
+font-size: 30px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 12px;"
+}
+
+.logoutBtn {
+  background-color: #23C162; /* Green */
+  border: 2px solid #65b473;
+color: #FFFFFF;
+padding: 10px 30px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 24px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 12px;"
+}
+.signupbtn {
+  background-color: #23C162; /* Green */
+  border: 2px solid #65b473; color:
+#FFFFFF;
+padding: 15px 60px; text-align: center;
+ text-decoration: none;
+  display: inline-block;
+font-size: 24px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 12px;
 }
