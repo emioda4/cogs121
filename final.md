@@ -1,7 +1,7 @@
 Team Members: Emi Oda, Matthias Baker, Natalia Ratosh, Kristen Randall
 
 Emi
-- 
+- Completed tasks she signed up for in order to develop the app more every milestone
 
 Matthias
 - 
@@ -38,3 +38,5 @@ List of source code files:
 - layout.css
 - popup.css
 - jquery-3.3.1.min.js
+
+Single-slide presentation link: 
