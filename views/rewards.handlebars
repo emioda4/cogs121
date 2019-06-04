@@ -9,14 +9,15 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/layout.css">
-
-
-
 <script src="jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
-	//code to display current number of points when the page loads
-	$(document).ready(() => {
+	//The rewards page displays what rewards have and haven't been purchased yet. It also handles ensuring that the user has enough points to buy a reward. If they do the page communicates with the backend to unlock that reward in the database, when the page is loaded again that reward will be removed from the purchaseable list.
 
+
+
+
+  //code to display current number of points when the page loads
+	$(document).ready(() => {
 	console.log("Working!");
 	$.ajax({
 	url: '/points',
@@ -27,6 +28,7 @@
 		$('#pointsDiv').html('Total Points: ' + data.points);
 	 }
  })
+   
    //Code to display what has already been purchased.
    $.ajax({
     url: '/currentRewards',
@@ -51,15 +53,17 @@
 
 
 
-//Rewards Buttons Code
+//Rewards Buttons Code (brekdown in comments of w10 code), each chunk of code corrisponds to one button
 $('#w10').click(() => {
    console.log('clicked')
+   //Code checks to see if you have enough points to buy the reward
    $.ajax({
     url: '/points',
     type: 'GET',
     dataType: 'json',
     success: (data) => {
     console.log('You recieved some data!', data);
+          //If you do have enough points than this code removes those points and tells the database the reward has been purchased, then disables the button and updates the points div 
           if (data.points >= 10){
               $.ajax({
               url: '/removePoints',
@@ -94,6 +98,7 @@ $('#w10').click(() => {
                     }
                 });
               }
+          //If you don't have enough points than nothing occurs
           else{
             console.log('not enough points to purchase');
               }
@@ -642,13 +647,11 @@ $('#pu40').click(() => {
 });
 </script>
 
-
 <style>
 body, html {
   height: 100%;
   margin: 0;
 }
-
 .bg {
   /* The image used */
   background-image: url("Rewards Background.png");
@@ -753,11 +756,6 @@ body, html {
             <button class="purbutton button4" id = "pu40">40 Pts</button>
             </center>
          </div>
-
-
-
-
-
 </div>
 			<div class="icon-bar">
 				<a href="home"><i class="fa fa-home"></i></a>
@@ -767,6 +765,4 @@ body, html {
 
 
 </body>
-
-
 </html>

@@ -41,26 +41,18 @@ $(document).ajaxError(() => {
 
 
 <body style="background-color:#d0fcce;">
-  <div id="startPage"></div>
     <center>
-    <img src="PlayPalLogo.png"  width="50%"></img>
-  </center>
-  <center> <form id="signUpForm"  action="/users">
-        <h1>
-          <font face="Segoe UI" color="#65b473" size ="7">Sign Up</font>
-        </h1>
+<img src="PlayPalLogo.png" alt="Main Title" width="290" height="320"></img>
+  <form id="signUpForm"  action="/users">
+        <h1><font face="Segoe UI" color="#65b473" size ="7">Sign Up</font></h1>
 </center>
+      <font face="Segoe UI" color="#000000" size ="4" style="position:relative; left:20px;" >Username:</font>
+      <br><input id="insertNameBox" type="text" placeholder="Enter a Nickname" style="position:relative; width: 320px; left:21px;"><br><br>
+      <font face="Segoe UI" color="#000000" size ="4" style="position:relative; left:20px;" >Password:</font>
+     <br><input id="insertPasswordBox" type="password" placeholder="Enter a Password" style="position:relative; width: 320px; left:21px;"><br><br>
 <center>
-<div container="insert" style=" padding:30px;">
-      <font face="Segoe UI" color="#000000" size ="4" style="position:relative;" >Username:</font>
-      <br><input id="insertNameBox" type="text" placeholder="Enter Your Username" style="position:center; width: 320px; left:21px;"><br><br>
-      <font face="Segoe UI" color="#000000" size ="4" style="position:left; left:20px;" >Password:</font>
-     <br><input id="insertPasswordBox" type="password" placeholder="Enter Your Password" style="position:center; width: 320px; left:21px;"><br><br>
-</div></center>
-<div id="pointsDiv" style="text-align: center; font-size:32px; padding: 5px;"></div>
-<center>
-          <button id="insertButton" type="submit" class="signupbtn">Submit</button><br><br>
-          <p> Are you a already a member? <a href="login">Login</a></p>
+          <button id="insertButton" type="submit" class="signupbtn">Submit</button>
+          <p>Are you a already a member? <a href="login">Login</a></p>
           </center>
     </form>
 </body>

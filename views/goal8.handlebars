@@ -33,7 +33,17 @@
 									addedPoints: 10,
 								},
 					success: (data) => {
-										window.location="/task_overview";
+					   $.ajax({
+                       url: '/addGoal',
+                       type: 'POST',
+                       data: {
+                       goalID: 'Sandcastle',
+                       },
+                       success: (data) => {
+                         console.log('you received some data!' + data);
+                         window.location="/task_overview";
+                  }
+                 })
 						console.log('you received some data!' + data);
 					}
 				});
@@ -71,4 +81,18 @@
 	</div>
 
 </body>
+<style>
+.completeStyle {
+		background-color: #C4FAF8;
+		border-radius:10px;
+		border: 1px solid #6ABAC7;
+		font-size:25px;
+		color: #6ABAC7;
+        left:50%;
+        margin: -10% -20%;
+        padding:3%;
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+</style>
 </html>

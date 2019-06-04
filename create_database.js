@@ -20,6 +20,7 @@ db.serialize(() => {
   // create a new database table:
   db.run("CREATE TABLE users_to_playPal (name TEXT, password TEXT, points INTEGER)");
   db.run("CREATE TABLE rewards_to_playPal (rewardID TEXT, status INTEGER)");
+  db.run("CREATE TABLE goals_to_playPal (goalID TEXT, completed INTEGER)");
   db.run("INSERT INTO users_to_playPal VALUES ('Nataliya', '123456', 0)");
   db.run("INSERT INTO users_to_playPal VALUES ('Emi', '234567',0)");
   db.run("INSERT INTO users_to_playPal VALUES ('Matthias', '345678',0)");
@@ -36,8 +37,17 @@ db.serialize(() => {
   db.run("INSERT INTO rewards_to_playPal VALUES ('pu20',0)");
   db.run("INSERT INTO rewards_to_playPal VALUES ('pu30',0)");
   db.run("INSERT INTO rewards_to_playPal VALUES ('pu40',0)");
+  db.run("INSERT INTO goals_to_playPal VALUES ('Picture',0)");
+  db.run("INSERT INTO goals_to_playPal VALUES ('Picnic',0)");
+  db.run("INSERT INTO goals_to_playPal VALUES ('Grass',0)");
+  db.run("INSERT INTO goals_to_playPal VALUES ('Birds',0)");
+  db.run("INSERT INTO goals_to_playPal VALUES ('Dog', 0)");
+  db.run("INSERT INTO goals_to_playPal VALUES ('Ice Cream',0)");
+  db.run("INSERT INTO goals_to_playPal VALUES ('Shells',0)");
+  db.run("INSERT INTO goals_to_playPal VALUES ('Sandcastle',0)");
+  db.run("INSERT INTO goals_to_playPal VALUES ('Frisbee',0)");
 
-  console.log('successfully created the users_to_playPal and rewards_to_playPal table in playPal.db');
+  console.log('successfully created the users_to_playPal, rewards_to_playPal, and goals_to_playpal tables, in playPal.db');
 
   // print them out to confirm their contents:
   // db.each("SELECT name, password FROM users_to_goalDigger", (err, row) => {

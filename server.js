@@ -17,12 +17,6 @@ app.set('view engine', 'handlebars');
 
 
 //Start of Our Stuff
-app.get('/Tasks_page', (req, res) => {
-  const pageName = 'Tasks_page';
-  console.log('trying to change to TasksPage');
-  res.send(pageName);
-});
-
 app.get('/', index.start)
 app.get('/goal1', index.goal1)
 app.get('/task_overview', index.task_overview)
@@ -41,12 +35,15 @@ app.get('/goal7', index.goal7)
 app.get('/goal8', index.goal8)
 app.get('/goal9', index.goal9)
 
+//required express statement
 app.use(express.static('views'));
 
+//Setting up the link to the database
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('playPal.db');
 
 
+//Call to the database that sends the list of all users we have to the front end
 app.get('/users', (req, res) => {
   db.all('SELECT name FROM users_to_playPal', (err, rows) =>{
     console.log(rows);
@@ -56,14 +53,13 @@ app.get('/users', (req, res) => {
   });
 });
 
-// To test, use the web frontend interface at:
-//   http://localhost:3000/petsapp.html
-// use this library to parse HTTP POST requests
+
+//Use this library to parse HTTP POST requests
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
 app.use(bodyParser.json());
 
-
+//This code adds a user into our database
 app.post('/users', (req, res) => {
   console.log(req.body);
   db.run(
@@ -72,7 +68,6 @@ app.post('/users', (req, res) => {
     {
       $name: req.body.name,
       $password: req.body.password,
-      //$points: req.body.points,
       $points:  0,
     },
     // callback function to run when the query finishes:
@@ -87,7 +82,7 @@ app.post('/users', (req, res) => {
 });
 
 
-
+//This code returns a user based on the userid we are attempting to find
 app.get('/users/:userid', (req, res) => {
   const nameToLookup = req.params.userid; // matches ':userid' above
 
@@ -110,7 +105,7 @@ app.get('/users/:userid', (req, res) => {
   );
 });
 
-//rewards retrival code
+//This code retrives the points users have (all users have the same number of points in the current build)
 app.get('/points', (req, res) => {
 	db.all(
    'SELECT points FROM users_to_playPal',
@@ -126,7 +121,7 @@ app.get('/points', (req, res) => {
   );
 });
 
-//Points updateing code
+//This code allows the frontend to add points into the database
 app.post('/addPoints', (req, res) => {
   console.log(req.body);
   db.run(
@@ -146,6 +141,7 @@ app.post('/addPoints', (req, res) => {
   );
 });
 
+//This code removes points from users when a reward is purchased
 app.post('/removePoints', (req, res) => {
   console.log(req.body);
   db.run(
@@ -165,7 +161,7 @@ app.post('/removePoints', (req, res) => {
   );
 });
 
-//rewards buttons stuff
+//This code sets the status of a reward to purchased (0 = unpurchased, 1 = purchased)
 app.post('/addReward', (req, res) => {
   console.log(req.body);
   db.run(
@@ -185,13 +181,43 @@ app.post('/addReward', (req, res) => {
   );
 });
 
+//This code records into the database how many times a goal has been completed
+app.post('/addGoal', (req, res) => {
+  console.log(req.body);
+  db.run(
+    'UPDATE goals_to_playPal SET completed = completed + 1 WHERE goalID = $goalID',
+    // parameters to SQL query:
+    {
+      $goalID: req.body.goalID
+    },
+    // callback function to run when the query finishes:
+    (err) => {
+      if (err) {
+        res.send({message: 'error in app.post(/addGoal)'});
+      } else {
+        res.send({message: 'successfully run app.post(/addGoal)'});
+      }
+    }
+  );
+});
 
+//Returns the status of all rewards in a list
 app.get('/currentRewards', (req, res) => {
   db.all('SELECT status FROM rewards_to_playPal', (err, rows) =>{
     console.log(rows);
     const allRewards = rows.map(e => e.status);
     console.log(allRewards);
     res.send(allRewards);
+  });
+});
+
+//Returns the number of times each goal has been completed in a list
+app.get('/currentGoals', (req, res) => {
+  db.all('SELECT completed FROM goals_to_playPal', (err, rows) =>{
+    console.log(rows);
+    const allGoals = rows.map(e => e.completed);
+    console.log(allGoals);
+    res.send(allGoals);
   });
 });
 

@@ -28,11 +28,13 @@
            $('#startButton').click(() => {
                window.location="/task_overview";
              });
-             $('#logOut').click(() => {
-               window.location="/";
-              alert( 'You are logged out' );
-             });
         });
+
+  function logOut() {
+      window.location="/";
+      alert( 'You are logged out' );
+  }
+
     </script>
 
 </head>
@@ -41,27 +43,21 @@
 	<br><br>
   <center>
 
-<img src="PlayPalLogo.png"  width="50%"></img><br><br>
+<img src="PlayPalLogo.png"  width="90%" height="100%"></img><br><br>
 </center>
 <h2 id="helloUser" style="text-align: center"></h2>
 <br>
 <div>
 <center>
-<button id="startButton" type="button" class="startBtn">Start</button></div><br><br>
+<button id="startButton" type="button" class="startBtn">Start</button></div>
 <div></center>
 <center>
-<a id ="logOut" type="button" class="logoutBtn">Log Out</a></center>
-
-	<br><br>
-	<br><br>
-
-  <div class="icon-bar">
-    <a href="home" class="active"><i class="fa fa-home"></i></a>
-    <a href="task_overview"><i class="fa fa-map-pin"></i></a>
-    <a href="rewards"><i class="fa fa-trophy"></i></a>
-  </div>
-
-
+<button id ="logOut" onclick="logOut()" style = "border: none;
+  background-color: #d0fcce;
+  color: #65b473;
+  padding: 14px 28px;
+  font-size: 20px;
+  cursor: pointer;">Log Out</button></center>
 
 
 </body>
