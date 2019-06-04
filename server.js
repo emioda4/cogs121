@@ -5,13 +5,7 @@ const path = require('path');
 const handlebars = require('express3-handlebars')
 const index = require('./routes/index');
 
-const port=process.env.PORT || 3000
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  });
-
-
-
+app.set('port', process.env.PORT || 3000);
 
 
 app.use(express.static('views'));
