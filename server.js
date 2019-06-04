@@ -4,6 +4,7 @@ const http = require('http');
 const path = require('path');
 const handlebars = require('express3-handlebars')
 const index = require('./routes/index');
+const port=process.env.PORT || 3000
 
 
 app.use(express.static('views'));
