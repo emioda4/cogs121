@@ -1,7 +1,7 @@
 body {
 
 }
-
+body {margin:0}
 .header {
     padding: 20px 16px;
     background: #D5aaff;
@@ -9,7 +9,7 @@ body {
     color: #f1f1f1;
     font-size:  50px;
   }
-
+/*
 .pill-nav a {
 display: block;
 text-align: center;
@@ -23,7 +23,7 @@ border-radius: 20px;
 .pill-nav a:hover {
 background-color: #5ccc8f;
 color: black;
-}
+} */
 
 .icon-bar {
 	background-color: #D5aaff;
@@ -35,9 +35,9 @@ color: black;
 
 .icon-bar a {
 	float: left;
-	width: 33.3%;
+	width: 25%;
 	text-align: center;
-	padding: 12px 10px;
+	padding: 10px 10px ;
 	transition: all 0.3s ease;
 	color: white;
 	font-size: 36px;
