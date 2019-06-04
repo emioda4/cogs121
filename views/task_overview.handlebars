@@ -159,22 +159,19 @@
 <script type="text/javascript">
     //code to display current number of points when the page loads
     $(document).ready(() => {
-      let currentUser = sessionStorage.getItem("currentUser");
-       const myURL = 'users/'+ currentUser;
+      console.log("Working!");
        $.ajax({
-        url: myURL,
+        url: '/points',
         type: 'GET',
         dataType: 'json',
         success: (data) => {
-
-          console.log('task overview points', data.points);
-          $('#pointsDiv').html('You have ' + data.points + ' points!');
+          console.log('You recieved some data!', data);
+          $('#pointsDiv').html('Your Points: ' + data.points);
      }
    })
 });
-
-
 </script>
+
 
 <body style="background-color:#f3e3ff;">
   <div class="header" id="task_overview">

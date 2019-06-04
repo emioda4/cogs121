@@ -14,19 +14,19 @@
 
 <script src="jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
-    //code to display current number of points when the page loads
-    $(document).ready(() => {
-    
-    console.log("Working!");
-    $.ajax({
-   	url: '/points',
-   	type: 'GET',
-   	dataType: 'json',
-   	success: (data) => {
-   		console.log('You recieved some data!', data);
-   		$('#pointsDiv').html('Total Points: ' + data.points);
-   	 }
-   })
+	//code to display current number of points when the page loads
+	$(document).ready(() => {
+
+	console.log("Working!");
+	$.ajax({
+	url: '/points',
+	type: 'GET',
+	dataType: 'json',
+	success: (data) => {
+		console.log('You recieved some data!', data);
+		$('#pointsDiv').html('Total Points: ' + data.points);
+	 }
+ })
    //Code to display what has already been purchased.
    $.ajax({
     url: '/currentRewards',
@@ -49,7 +49,7 @@
      }
    })
 
-   
+
 
 //Rewards Buttons Code
 $('#w10').click(() => {
@@ -654,7 +654,7 @@ body, html {
   background-image: url("Rewards Background.png");
 
   /* Full height */
-  height: 100%; 
+  height: 100%;
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -663,7 +663,7 @@ body, html {
 }
 
 .wrbutton{
-  background-color: #FFFFFF; 
+  background-color: #FFFFFF;
   border: 2px solid #E1E1E1;
   border-radius: 8px;
   color: #E1E1E1;
@@ -677,7 +677,7 @@ body, html {
 }
 
 .prbutton{
-  background-color: #FFCDFF; 
+  background-color: #FFCDFF;
   border: 2px solid #FFB6FF;
   border-radius: 8px;
   color: #FFFFFF;
@@ -691,7 +691,7 @@ body, html {
 }
 
 .purbutton{
-  background-color: #D7DEFF; 
+  background-color: #D7DEFF;
   border: 2px solid #D2D2FF;
   border-radius: 8px;
   color: #FFFFFF;
@@ -755,7 +755,7 @@ body, html {
          </div>
 
 
-            
+
 
 
 </div>

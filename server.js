@@ -87,12 +87,7 @@ app.post('/users', (req, res) => {
 });
 
 
-// GET profile data for a user
-//
-// To test, open these URLs in your browser:
-//   http://localhost:3000/users/Philip
-//   http://localhost:3000/users/Carol
-//   http://localhost:3000/users/invalidusername
+
 app.get('/users/:userid', (req, res) => {
   const nameToLookup = req.params.userid; // matches ':userid' above
 

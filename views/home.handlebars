@@ -13,22 +13,26 @@
     <script src="jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
     //code to display current number of points when the page loads
-  $(document).ready(() => {
+          $(document).ready(() => {
+           console.log("Working!");
+           $.ajax({
+            url: '/users',
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+              console.log('You recieved some data!', data);
+              $('#helloUser').html('Welcome ' + data[data.length-1] + '!');
+             }
+           })
 
-   let currentUser = sessionStorage.getItem("currentUser");
-   $('#helloUser').html('Welcome, ' + currentUser + '!');
-   console.log('session storage, my name is ', currentUser);
-
-   $('#startButton').click(() => {
-     window.location="/task_overview";
-   });
-
-   $('#logOut').click(() => {
-     sessionStorage.clear();
-     window.location="/";
-    alert( 'You are logged out' );
-   });
-});
+           $('#startButton').click(() => {
+               window.location="/task_overview";
+             });
+             $('#logOut').click(() => {
+               window.location="/";
+              alert( 'You are logged out' );
+             });
+        });
     </script>
 
 </head>

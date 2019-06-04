@@ -22,23 +22,23 @@
 	</script>
 
 	<script type="text/javascript">
-		$(document).ready(() => {
-			//ajax call to listen to click of completeBtn and send something to backend
-			$('#addPointsButton').click(() => {
-				console.log('clicked')
-				$.ajax({
-					url: '/addPoints',
-					type: 'POST',
-					data: {
-									addedPoints: 10,
-								},
-					success: (data) => {
-										window.location="/task_overview";
-						console.log('you received some data!' + data);
-					}
-				});
+	$(document).ready(() => {
+		//ajax call to listen to click of completeBtn and send something to backend
+		$('#addPointsButton').click(() => {
+			console.log('clicked')
+			$.ajax({
+				url: '/addPoints',
+				type: 'POST',
+				data: {
+								addedPoints: 10,
+							},
+				success: (data) => {
+									window.location="/task_overview";
+					console.log('you received some data!' + data);
+				}
 			});
 		});
+	});
 
 
 	</script>
@@ -49,7 +49,7 @@
 	<div class="header">
 		<h1>Mall: Goal 2</h1>
 	</div>
-	<button onclick="goBack()" style= "background-color: #f3e3ff; 
+	<button onclick="goBack()" style= "background-color: #f3e3ff;
   border: none;
   color: black;
   padding: 20px; font-size: 20px;">< Back</button>
