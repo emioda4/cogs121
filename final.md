@@ -1,7 +1,7 @@
 Team Members: Emi Oda, Matthias Baker, Natalia Ratosh, Kristen Randall
 
 Emi
-- Completed tasks she signed up for in order to develop the app more every milestone
+- Completed tasks I signed up for in order to develop the app more every milestone including creating some of the goals pages, working on css, helping with some of the backend, and other non-coding related tasks in the milestones. 
 
 Matthias
 - 
