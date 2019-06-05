@@ -18,7 +18,7 @@ Kristen
 List of source code files:
 - create_database.js: This file creates dataabse with 3 tables to store username, password, points, rewardId, and goalId.
 
-- server.js: set up sqlite database and handle get/post requests from the frontend.
+- server.js: This file set up sqlite database and handle get/post requests from the frontend.
 
  Goals 1 through 9: Each goal page displays the task the user is to perfom and a picture. Once the goal is done (ex:take a oicture of a flower), the user needs to click on the "complete" button to get the points. By clicking on the button, user gets 10 more points. The data is updated by making ajax post call and adding the points.
 - goal1.handlebars
@@ -36,7 +36,7 @@ List of source code files:
 
 - login.handlebars: The page where an existing user can enter valid username and password.  After clicking the log in button, the user information is retrieved from the database by making ajax get request. If username and password are valid, the user is navigated to the home page. Otherwise, the error alert is displayed. There is also sign up button to let user navigate to the sign up page.
 
-- rewards.handlebars: 
+- rewards.handlebars: This page displays the rewards the user can get using the points. By clicking on any rewards button, the ajax get request is made to determine whether user has enough points. If yes, making another ajax post request removes the corresponding number of points and the status of the reward is updating to unavailable. User can not get rewards if there is not enough points.
 
 - start.handlebars: This is sign up page where user needs to input username and password. After clicking on the submit button, the user's info is posted into the database by making ajax post request.
 
@@ -44,7 +44,7 @@ List of source code files:
 
 - statistics.handlebars: This page displays bar chart demonstrating the number of each goal completed. The data displayed is retrieved from the database by making ajax get request.
 
-- index.js:
+- index.js: This file handles the app startup and routing
 
 - camera.css: This file includes styling of the camera function in goal1.camera.handlebars.
 
