@@ -1,6 +1,9 @@
 // This file is run to create the initial database as the playPal.db file
 // The database is used for the the points that users gain through goals
 // and use through rewards. It's also used to store users and goal status.
+// Besides, the database is used to retrieve user data to validate username and password on login page
+// and used to post and store new user data after user sign up
+// it is also used to store the number of  each goals completed by users, and is displayed in the bar char on statistics page
 
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('playPal.db');
