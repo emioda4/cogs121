@@ -14,8 +14,6 @@ Kristen
 
 List of source code files:
 - create_database.js
-- package.json
-- package-lock.json
 - server.js
 - goal1.handlebars
 - goal1camera.handlebars
