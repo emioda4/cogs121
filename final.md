@@ -7,7 +7,7 @@ Emi
 - Completed tasks I signed up for in order to develop the app more every milestone including creating some of the goals pages, working on css, helping with some of the backend, and other non-coding related tasks in the milestones. 
 
 Matthias
-- Implemented points and rewards systems, set up all but two of the backend functions, created paper prototype and mockups that inspired the final design/styleing, Did styleing for all pages, contributed to finishing code for milestones by the time they were due.
+- Implemented points and rewards systems, set up the majority of back-end functions, created paper prototype and mockups that inspired the final design/styling, Did styling for all pages, contributed to finishing code for milestones by the time they were due.
 
 Nataliya
 - Implemented google map api, created start page, login page and some goals pages. Created sqlite database to store user data. Contributed to finishing milestones.
