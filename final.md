@@ -13,12 +13,12 @@ Nataliya
 
 
 Kristen
--
+- Completed various tasks that needed to be implemented each week. Implemented the graph on the statistics page. Helped with setting up the rewards page and database. Also helped write the milestones.
 
 List of source code files:
 - create_database.js: This file creates dataabse with 3 tables to store username, password, points, rewardId, and goalId.
 
-- server.js: This file set up sqlite database and handle get/post requests from the frontend.
+- server.js: This file creates an HTTP server for node.js to run on, set up sqlite database and handle get/post requests from the frontend.
 
  Goals 1 through 9: Each goal page displays the task the user is to perfom and a picture. Once the goal is done (ex:take a oicture of a flower), the user needs to click on the "complete" button to get the points. By clicking on the button, user gets 10 more points. The data is updated by making ajax post call and adding the points.
 - goal1.handlebars
