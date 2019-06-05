@@ -38,6 +38,6 @@ List of source code files:
 - camera.css
 - layout.css
 
-Single-slide presentation link: 
+Single-slide presentation link: https://docs.google.com/presentation/d/1FtzxFhahV2u24xUmylLkjsEt0m8t_4opzVUz3lbiyiE/edit?usp=sharing
 
 Demo video link:
