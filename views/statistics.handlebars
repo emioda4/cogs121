@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
-
+<!-- 
+This is the statistics page that you can go to by clicking the graph icon in the navigation bar. 
+The statistics page includes a dynamic bar graph which displays the number of times the user completes each goal.
+It communicates with the backend to always update the graph based on the data stored in the database
+-->
   <head>
   <title>Rewards</title>
   <meta charset="utf-8">
@@ -28,6 +32,7 @@
 
 
 <script>
+//code to grab the data from the currentGoals database
 var ctx = document.getElementById('myChart');
 $(document).ready(function(){
 $.ajax({
@@ -39,6 +44,7 @@ $.ajax({
       for(var i in data) {
         numberOfCompleted.push(data[i]);
       }
+      //stores the data needed to create the graph
     var chartdata = {
         labels: ['Goal 1', 'Goal 2', 'Goal 3', 'Goal 4', 'Goal 5', 'Goal 6', 'Goal 7', 'Goal 8', 'Goal 9'],
         datasets: [
@@ -67,7 +73,7 @@ $.ajax({
         }
       ]
     };
- 
+ //creates a new bar graph to display the data
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: chartdata
