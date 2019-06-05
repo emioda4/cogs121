@@ -14,7 +14,6 @@ Kristen
 
 List of source code files:
 - create_database.js
-- data.json
 - package.json
 - package-lock.json
 - server.js
