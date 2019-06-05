@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
-This page displays a graph of users vs. points they have. 
--->
-
   <head>
-  <title>Statistics</title>
+  <title>Rewards</title>
   <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,13 +14,72 @@ This page displays a graph of users vs. points they have.
     <script src="jquery-3.3.1.min.js"></script>
 </head>
 
-
-
-
 <body style="background-color:#f3e3ff;">
   <div class="header" id="graph">
-    <h1>Graph</h1>
-</div>
+    <h1>Statistics</h1>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<canvas id="myChart"></canvas>
+
+
+<script>
+var ctx = document.getElementById('myChart');
+$(document).ready(function(){
+$.ajax({
+    url: '/currentGoals',
+    method: "GET",
+    success: function(data) {
+      console.log(data);
+      var numberOfCompleted = [];
+      for(var i in data) {
+        numberOfCompleted.push(data[i]);
+      }
+    var chartdata = {
+        labels: ['Goal 1', 'Goal 2', 'Goal 3', 'Goal 4', 'Goal 5', 'Goal 6', 'Goal 7', 'Goal 8', 'Goal 9'],
+        datasets: [
+        {
+            label: '# of Goals Completed',
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            data: numberOfCompleted
+        }
+      ]
+    };
+ 
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: chartdata
+ });
+},
+error: function(data) {
+  console.log(data);
+}
+});
+});
+
+</script>
+
+
     <div class="icon-bar">
            <a href="home"><i class="fa fa-home"></i></a>
            <a href="task_overview"><i class="fa fa-map-pin"></i></a>
