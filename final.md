@@ -33,10 +33,9 @@ List of source code files:
 - rewards.handlebars
 - start.handlebars
 - task_overview.handlebars
+- statistics.handlebars
 - index.js
 - camera.css
 - layout.css
-- popup.css
-- jquery-3.3.1.min.js
 
 Single-slide presentation link: 

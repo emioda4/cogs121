@@ -1,6 +1,5 @@
-body {
+/* Styling for overall layout, buttons, and navigation bar */
 
-}
 body {margin:0}
 .header {
     padding: 20px 16px;
@@ -9,21 +8,6 @@ body {margin:0}
     color: #f1f1f1;
     font-size:  50px;
   }
-/*
-.pill-nav a {
-display: block;
-text-align: center;
-color: #ffcdff;
-padding: 14px;
-text-decoration:none;
-font-size: 30px;
-border-radius: 20px;
-}
-
-.pill-nav a:hover {
-background-color: #5ccc8f;
-color: black;
-} */
 
 .icon-bar {
 	background-color: #D5aaff;
@@ -52,19 +36,18 @@ color: black;
 }
 
 
-  .completeStyle {
-		background-color: #23C162;
-		border-radius:10px;
-		font-size:25px;
-		color: black;
-		border: 1px solid #6ABAC7;
-        left:50%;
-        margin: -10% -20%;
-        padding:3%;
-        padding-right: 4%;
-        padding-left: 4%;
-    }
-
+.completeStyle {
+	background-color: #23C162;
+	border-radius:10px;
+	font-size:25px;
+	color: black;
+	border: 1px solid #6ABAC7;
+    left:50%;
+    margin: -10% -20%;
+    padding:3%;
+    padding-right: 4%;
+    padding-left: 4%;
+}
 
 
 .startBtn {
@@ -80,14 +63,13 @@ background-color: #C4FAF8;
 }
 
 .signupbtn {
-  background-color: #23C162; /* Green */
-  border: 2px solid #65b473; color:
-#FFFFFF;
-padding: 15px 60px; text-align: center;
- text-decoration: none;
-  display: inline-block;
-font-size: 24px;
-margin: 4px 2px;
-cursor: pointer;
-border-radius: 12px;
+	background-color: #23C162; /* Green */
+	border: 2px solid #65b473; color: #FFFFFF;
+	padding: 15px 60px; text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 12px;
 }
