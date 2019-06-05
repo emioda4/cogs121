@@ -8,9 +8,9 @@ Emi
 
 Matthias
 - 
-
 Nataliya
-- 
+- Implemented google map api, created start page, login page and some goals pages. Created sqlite database to store user data. Contributed to finishing milestones.
+
 
 Kristen
 -
