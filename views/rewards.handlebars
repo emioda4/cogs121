@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
+<!--
 This is the rewards page that you can go to by clicking the rewards icon in the navigation bar. The rewards page displays what rewards have and haven't been purchased yet. It also handles ensuring that the user has enough points to buy a reward. If they do the page communicates with the backend to unlock that reward in the database, when the page is loaded again that reward will be removed from the purchaseable list.
 -->
 
@@ -15,13 +15,17 @@ This is the rewards page that you can go to by clicking the rewards icon in the 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/layout.css">
   <script src="jquery-3.3.1.min.js"></script>
-  
+
   <script type="text/javascript">
   //code to display current number of points when the page loads
 	$(document).ready(() => {
-	console.log("Working!");
+    // get the current username using session storage property
+		const currentUser = sessionStorage.getItem("currentUser");
+    //url to send request to
+		const myURL = 'users/'+ currentUser;
+	  console.log("Working!");
 	$.ajax({
-	url: '/points',
+	url: myURL,
 	type: 'GET',
 	dataType: 'json',
 	success: (data) => {
@@ -29,7 +33,7 @@ This is the rewards page that you can go to by clicking the rewards icon in the 
 		$('#pointsDiv').html('Total Points: ' + data.points);
 	 }
  })
-   
+
    //Code to display what has already been purchased.
    $.ajax({
     url: '/currentRewards',
@@ -64,7 +68,7 @@ $('#w10').click(() => {
     dataType: 'json',
     success: (data) => {
     console.log('You recieved some data!', data);
-          //If you do have enough points than this code removes those points and tells the database the reward has been purchased, then disables the button and updates the points div 
+          //If you do have enough points than this code removes those points and tells the database the reward has been purchased, then disables the button and updates the points div
           if (data.points >= 10){
               $.ajax({
               url: '/removePoints',

@@ -161,9 +161,13 @@ var infowindow;
 <script type="text/javascript">
     //code to display current number of points when the page loads
     $(document).ready(() => {
+        // get the current username using session storage property
+      const currentUser = sessionStorage.getItem("currentUser");
+      //url to send request to
+      const myURL = 'users/'+ currentUser;
       console.log("Working!");
        $.ajax({
-        url: '/points',
+        url: myURL,
         type: 'GET',
         dataType: 'json',
         success: (data) => {

@@ -19,7 +19,7 @@ This is the homepage of the app that you land on after signing up or logging in 
     <script src="jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
     $(document).ready(() => {
-      // get the current username using session stirage property
+      // get the current username using session storage property
       const currentUser = sessionStorage.getItem("currentUser");
       //display welcome message
       $('#helloUser').html('Welcome, ' + currentUser + '!');
