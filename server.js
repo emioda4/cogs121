@@ -1,3 +1,5 @@
+// This file creates an HTTP server for node.js to run on 
+
 const express = require('express');
 const app = express();
 const http = require('http');

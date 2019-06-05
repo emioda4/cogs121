@@ -1,3 +1,5 @@
+// This file handles the app startup and routing
+
 exports.home = function(req, res){
   res.render('home');
 };
