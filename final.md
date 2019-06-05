@@ -13,7 +13,7 @@ Nataliya
 
 
 Kristen
--
+- Completed various tasks that needed to be implemented each week. Implemented the graph on the statistics page. Helped with setting up the rewards page and database. Also helped write the milestones.
 
 List of source code files:
 - create_database.js: This file creates dataabse with 3 tables to store username, password, points, rewardId, and goalId.
