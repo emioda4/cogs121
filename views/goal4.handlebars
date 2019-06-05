@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+
+<!-- 
+This page shows Goal 1 of the mall where it tells the user to watch birds flying. There is also a button that the parent can click to indicate that the child has completed the goal. This button uses ajax to add 10 points to the user when it's clicked. 
+-->
+
 <head>
 	<title>Mall: Goal 1</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,19 +68,18 @@
   border: none;
   color: black;
   padding: 20px; font-size: 20px;">< Back</button>
+	
 	<div>
-
         <center>
-<h4 id="show" style="text-align: center">Watch birds flying</h4><br>
-		<div>
- <img id="bird" src="birds.jpg" style="width:50%"></img>
+		<h4 id="show" style="text-align: center">Watch birds flying</h4><br>
 
-<br><br><br><br>
+		<div>
+			 <img id="bird" src="birds.jpg" style="width:50%"></img>
+			<br><br><br><br>
 			<button class="completeStyle" id="addPointsButton">Complete to earn 10 Pts!</button>
 		</div>
         </center>
 		<div id="points"></div>
-
 	</div><br><br><br><br><br><br>
 
 
@@ -88,7 +92,7 @@
 
 </body>
 <style>
-.completeStyle {
+	.completeStyle {
 		background-color: #C4FAF8;
 		border-radius:10px;
 		border: 1px solid #6ABAC7;

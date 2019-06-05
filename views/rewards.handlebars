@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+
+<!-- 
+This is the rewards page that you can go to by clicking the rewards icon in the navigation bar. The rewards page displays what rewards have and haven't been purchased yet. It also handles ensuring that the user has enough points to buy a reward. If they do the page communicates with the backend to unlock that reward in the database, when the page is loaded again that reward will be removed from the purchaseable list.
+-->
+
 <head>
 	<title>Rewards</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +14,9 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/layout.css">
-<script src="jquery-3.3.1.min.js"></script>
+  <script src="jquery-3.3.1.min.js"></script>
+  
   <script type="text/javascript">
-	//The rewards page displays what rewards have and haven't been purchased yet. It also handles ensuring that the user has enough points to buy a reward. If they do the page communicates with the backend to unlock that reward in the database, when the page is loaded again that reward will be removed from the purchaseable list.
-
-
-
-
   //code to display current number of points when the page loads
 	$(document).ready(() => {
 	console.log("Working!");

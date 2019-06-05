@@ -5,8 +5,6 @@ const path = require('path');
 const handlebars = require('express3-handlebars')
 const index = require('./routes/index');
 
-app.set('port', process.env.PORT || 3000);
-
 
 app.use(express.static('views'));
 app.use(express.json());

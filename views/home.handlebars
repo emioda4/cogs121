@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+
+<!-- 
+This is the homepage of the app that you land on after signing up or logging in where it shows an image of Play Pal, a welcome message with the user's name using an ajax call, a start button to begin playing the game, and a log out button.
+-->
+
 <head>
   <title>Home</title>
   <meta charset="utf-8">
@@ -36,27 +41,32 @@
   }
 
     </script>
-
 </head>
 
 <body style="background-color:#d0fcce;">
 	<br><br>
-  <center>
+ 	<center>
+		<img src="PlayPalLogo.png"  width="90%" height="100%"></img><br><br>
+	</center>
 
-<img src="PlayPalLogo.png"  width="90%" height="100%"></img><br><br>
-</center>
-<h2 id="helloUser" style="text-align: center"></h2>
-<br>
-<div>
-<center>
-<button id="startButton" type="button" class="startBtn">Start</button></div>
-<div></center>
-<center>
-<button id ="logOut" onclick="logOut()" style = "border: none;
-  background-color: #d0fcce;
-  color: #65b473;
-  padding: 14px 28px;
-  font-size: 20px;
-  cursor: pointer;">Log Out</button></center>
+	<h2 id="helloUser" style="text-align: center"></h2>
+	<br>
+
+	<div>
+		<center>
+		<button id="startButton" type="button" class="startBtn">Start</button>
+	</div>
+		
+	<div></center>
+		<center>
+		<button id ="logOut" onclick="logOut()" style = "border: none;
+		  background-color: #d0fcce;
+		  color: #65b473;
+		  padding: 14px 28px;
+		  font-size: 20px;
+		  cursor: pointer;">Log Out
+		</button>
+		</center>
+	</div>
 </body>
 </html>

@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+
+<!-- 
+This page shows Goal 3 of the beach where it tells the user to play frisbee with their mom or dad. There is also a button that the parent can click to indicate that the child has completed the goal. This button uses ajax to add 10 points to the user when it's clicked. 
+-->
+
 <head>
 	<title>Beach: Goal 3</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,18 +67,21 @@
   border: none;
   color: black;
   padding: 20px; font-size: 20px;">< Back</button>
+	
 	<div>
         <center>
 		<h4 id="show" style="text-align: center">Play frisbee with your mom/dad</h4><br>
 		<img src="frisbee.jpg" style="width:60%"></img>
-<br><br><br>
+		<br><br><br>
+		
 		<div>
 			<button class="completeStyle" id="addPointsButton">Complete to earn 10 Pts!</button>
 		</div>
         </center>
-		<div id="points"></div>
 
+		<div id="points"></div>
 	</div><br><br><br><br><br><br>
+
 
 
 		<div class="icon-bar">
@@ -85,7 +93,7 @@
 
 </body>
 <style>
-.completeStyle {
+	.completeStyle {
 		background-color: #C4FAF8;
 		border-radius:10px;
 		border: 1px solid #6ABAC7;

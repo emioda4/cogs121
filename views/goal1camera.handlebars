@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+
+<!--
+This is the page that the camera button on Goal 1 of the park leads to where the camera is activated and the user can capture a photo of a flower. The camera function is done by Javascript code. There is also a button that the parent can click to indicate that the child has completed the goal. This button uses ajax to add 10 points to the user when it's clicked. 
+-->
+
 <head>
 	<title>Goal 1</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +53,7 @@
 			});
 
 
-			// Get access to the camera!
+			// Get access to the camera
 			if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 			    // Not adding `{ audio: true }` since we only want video now
 			    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
@@ -58,7 +63,7 @@
 			    });
 			};
 
-			//ajax call to listen to click of completeBtn and send something to backend
+			//ajax call to listen to click of completeBtn and send points to backend
 			$('#addPointsButton').click(() => {
 				console.log('clicked')
 				$.ajax({
@@ -128,30 +133,20 @@
                 document.getElementById('completeBtn').style.display = 'block';
             }
 		}
-
-	function popupFunction() {
-	  var popup = document.getElementById("myPopup");
-	  popup.classList.toggle("show");
-	  document.getElementById('one').style.display = 'none';
-	  document.getElementById('two').style.visibility = 'hidden';
-	}
-
-
 	</script>
-
 </head>
-
 
 
 <body style= "background-color: #d0fcce;">
 	<div class="header">
 		<h1>Goal 1</h1>
-	</div>
-	<br>
+	</div><br>
+
 	<button onclick="goBack()" style= "background-color: #d0fcce; /* Green */
   border: none;
   color: black;
   padding: 20px; font-size: 20px;">< Back</button>
+	
 	<div>
 		<div id="one">
 			<video id="video" width="100%" height="450" autoplay></video>
@@ -175,7 +170,6 @@
 		<div id="points"></div>
 
 	</div><br><br><br><br><br><br>
-
 
 
 
