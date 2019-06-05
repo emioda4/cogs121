@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
-This page uses Google Maps API to display a map and it pinpoints the user's location in order to find the nearest park, mall, and beach. Each of those locations have goals that they can click on and complete. 
+<!--
+This page uses Google Maps API to display a map and it pinpoints the user's location in order to find the nearest park, mall, and beach. Each of those locations have goals that they can click on and complete.
 -->
 
   <head>
-  <title>Task Overview Page</title>
+  <title>Goal Overview Page</title>
   <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,25 +17,18 @@ This page uses Google Maps API to display a map and it pinpoints the user's loca
   	<link rel="stylesheet" href="/css/layout.css">
 
 </head>
-
-
-
 <script>
-  // Note: This example requires that you consent to location sharing when
-  // prompted by your browser. If you see the error "The Geolocation service
-  // failed.", it means you probably did not give permission for the browser to
-  // locate you.
-  var map;
-  var service;
-  var infowindow;
 
+var map;
+var service;
+var infowindow;
+
+// Initializing Google maps
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 13
-    });//
-    infoWindow = new google.maps.InfoWindow;
-
-    // current location
+    });
+    // Get current location coordinates
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var home = {
@@ -43,47 +36,49 @@ This page uses Google Maps API to display a map and it pinpoints the user's loca
           lng: position.coords.longitude
         };///end if statement
 
+        // set current location on the map and add info window
+        infoWindow = new google.maps.InfoWindow;
         infoWindow.setPosition(home);
         infoWindow.setContent('You are here!');
         infoWindow.open(map);
         map.setCenter(home);
 
+        // place marker on the current location
         var homeMarker = new google.maps.Marker({
          position: home,
          map: map,
          title: 'Home'
         });
 
+          // park request
           var request1 = {
               location: home,
               keyword: 'Park',
               rankBy: google.maps.places.RankBy.DISTANCE,
-              //radius: ['10000']
-            };//end var request
+            };
 
-
+         //mall request
           var request2 = {
                 location: home,
                 keyword: 'Mall',
                 rankBy: google.maps.places.RankBy.PROMINENCE,
                 radius: ['10000'],
+              };
 
-              };//end var request
-
+          //beach request
           var request3 = {
               location: home,
               keyword: 'Beach',
               rankBy: google.maps.places.RankBy.PROMINENCE,
               radius: ['10000']
-              };//end var request
+              };
 
-
-
+            // new Places servive variable
             service = new google.maps.places.PlacesService(map);
+            // search for specified places nearby
             service.nearbySearch(request1, callback);
             service.nearbySearch(request2, callback);
             service.nearbySearch(request3, callback);
-
 
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -94,20 +89,20 @@ This page uses Google Maps API to display a map and it pinpoints the user's loca
     }
   }//end function initMap
 
-
+//  this function returns the results  objects of nearby search
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
-        //console.log(results[i]);
+        console.log(results[i]);// all the results objects
         var place = results[0];
         createMarkers(place);
-
       }
     }
   }//end function callback
 
+// function to create  location markers and add info windows
   function createMarkers(place) {
-
+      // specify icon
       var image = {
         url: place.icon,
         size: new google.maps.Size(100,100),
@@ -116,6 +111,7 @@ This page uses Google Maps API to display a map and it pinpoints the user's loca
         scaledSize: new google.maps.Size(30, 30)
       }
 
+      //create marker
       var marker = new google.maps.Marker({
         map: map,
         icon: image,
@@ -123,13 +119,14 @@ This page uses Google Maps API to display a map and it pinpoints the user's loca
         position: place.geometry.location,
       });
 
+      // zoom in  and open info window after clicking on the marker
       marker.addListener('click', function() {
       map.setZoom(15);
       map.setCenter(marker.getPosition());
       infowindow.open(marker.get('map'), marker);
       });
 
-      //content to place into infoWindows
+      // list of goals to be placed into infoWindows for the found nearby places
       var myParkGoals = '<p><a id ="Task1" href="goal1" class="btn btn-info btn-lg">Goal 1</a>'+ '<br></br>'+
           '<a id ="Task2" href="goal2" class="btn btn-info btn-lg">Goal 2</a>'+ '<br></br>'+
           '<a id ="Task3" href="goal3" class="btn btn-info btn-lg">Goal 3</a>' +'</p>';
@@ -140,7 +137,7 @@ This page uses Google Maps API to display a map and it pinpoints the user's loca
           '<a id ="Task8" href="goal8" class="btn btn-info btn-lg">Goal 2</a>'+ '<br></br>'+
           '<a id ="Task9" href="goal9" class="btn btn-info btn-lg">Goal 3</a>' +'</p>';
 
-
+      //if statement to determine a type of the place based on the 'types' field of the results object
       if(place.types[0]=="park"){
         var infowindow = new google.maps.InfoWindow({
          content: myParkGoals
@@ -177,7 +174,6 @@ This page uses Google Maps API to display a map and it pinpoints the user's loca
 });
 </script>
 
-
 <body style="background-color:#f3e3ff;">
   <div class="header" id="task_overview">
     <h1>Goal Overview</h1>
@@ -192,7 +188,6 @@ This page uses Google Maps API to display a map and it pinpoints the user's loca
   <a href="rewards"><i class="fa fa-trophy"></i></a>
   <a href ="statistics"><i class="fa fa-chart-bar"></i></a>
 </div>
-
 
 </body>
 </html>

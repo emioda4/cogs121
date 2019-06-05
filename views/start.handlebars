@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
-This is the first page of the app where users can sign up with a username and password. Once they enter the username and password, the username and password get stored in the backend and they can use the same information to login to the app if they log out. Once they click the submit button, they are taken to a new page (homepage). There is also a login button at the bottom for those that already signed up. 
+<!--
+This is the first page of the app where users can sign up with a username and password. Once they enter the username and password, the username and password get stored in the backend and they can use the same information to login to the app if they log out. Once they click the submit button, they are taken to a new page (homepage). There is also a login button at the bottom for those that already signed up.
 -->
 
 <head>
@@ -18,43 +18,50 @@ crossorigin="anonymous">
 
 <script src="jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-
 $(document).ready(() => {
+// clicked sign up button
 $('#insertButton').click(() => {
+// username and password enterd to sign up
+const newUser = $('#insertNameBox').val();
+const newPassword = $('#insertPasswordBox').val();
+// define currentUser in session storage
+sessionStorage.setItem("currentUser", "");
+// ajax post request adding new user to the database
 $.ajax({
-  // all URLs are relative to http://localhost:3000/
   url: 'users',
-  type: 'POST', // <-- this is POST, not GET
+  type: 'POST',
   data: {
           name: $('#insertNameBox').val(),
           password: $('#insertPasswordBox').val(),
           points: $('#points').val()
         },
   success: (data) => {
-  window.location='/home';
-    $('#status').html(data.message);
+      // set username to save it in the web browser
+      sessionStorage.setItem("currentUser", newUser);
+      window.location='/home';
       console.log("You inserted new data: Name "+ data.name +' Password ' + data.password +' Points ' +data.points);
   }
 });
 });
+// generic ajax error handler
 $(document).ajaxError(() => {
   $('#status').html('Error: unknown ajaxError!');
 });
 });
-    </script>
+</script>
 </head>
 
-
 <body style="background-color:#d0fcce;">
-    <center>
-<img src="PlayPalLogo.png" alt="Main Title" width="290" height="320"></img>
+
+<center>
+  <img src="PlayPalLogo.png" alt="Main Title" width="290" height="320"></img>
   <form id="signUpForm"  action="/users">
         <h1><font face="Segoe UI" color="#65b473" size ="7">Sign Up</font></h1>
 </center>
-      <font face="Segoe UI" color="#000000" size ="4" style="position:relative; left:20px;" >Username:</font>
+       <font face="Segoe UI" color="#000000" size ="4" style="position:relative; left:20px;" >Username:</font>
       <br><input id="insertNameBox" type="text" placeholder="Enter a Nickname" style="position:relative; width: 320px; left:21px;"><br><br>
-      <font face="Segoe UI" color="#000000" size ="4" style="position:relative; left:20px;" >Password:</font>
-     <br><input id="insertPasswordBox" type="password" placeholder="Enter a Password" style="position:relative; width: 320px; left:21px;"><br><br>
+         <font face="Segoe UI" color="#000000" size ="4" style="position:relative; left:20px;" >Password:</font>
+      <br><input id="insertPasswordBox" type="password" placeholder="Enter a Password" style="position:relative; width: 320px; left:21px;"><br><br>
 <center>
           <button id="insertButton" type="submit" class="signupbtn">Submit</button>
           <p>Are you a already a member? <a href="login">Login</a></p>

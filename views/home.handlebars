@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
+<!--
 This is the homepage of the app that you land on after signing up or logging in where it shows an image of Play Pal, a welcome message with the user's name using an ajax call, a start button to begin playing the game, and a log out button.
 -->
 
@@ -15,32 +15,27 @@ This is the homepage of the app that you land on after signing up or logging in 
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/layout.css">
+
     <script src="jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
-    //code to display current number of points when the page loads
-          $(document).ready(() => {
-           console.log("Working!");
-           $.ajax({
-            url: '/users',
-            type: 'GET',
-            dataType: 'json',
-            success: (data) => {
-              console.log('You recieved some data!', data);
-              $('#helloUser').html('Welcome ' + data[data.length-1] + '!');
-             }
-           })
-
-           $('#startButton').click(() => {
-               window.location="/task_overview";
-             });
-        });
+    $(document).ready(() => {
+      // get the current username using session stirage property
+      const currentUser = sessionStorage.getItem("currentUser");
+      //display welcome message
+      $('#helloUser').html('Welcome, ' + currentUser + '!');
+      console.log('session storage, my name is ', currentUser);
+// start button clicked
+  $('#startButton').click(() => {
+      window.location="/task_overview";
+  });
+});
 
   function logOut() {
+      sessionStorage.clear();
       window.location="/";
       alert( 'You are logged out' );
-  }
-
-    </script>
+}
+  </script>
 </head>
 
 <body style="background-color:#d0fcce;">
@@ -56,7 +51,7 @@ This is the homepage of the app that you land on after signing up or logging in 
 		<center>
 		<button id="startButton" type="button" class="startBtn">Start</button>
 	</div>
-		
+
 	<div></center>
 		<center>
 		<button id ="logOut" onclick="logOut()" style = "border: none;

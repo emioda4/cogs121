@@ -11,6 +11,7 @@ db.serialize(() => {
   db.run("CREATE TABLE users_to_playPal (name TEXT, password TEXT, points INTEGER)");
   db.run("CREATE TABLE rewards_to_playPal (rewardID TEXT, status INTEGER)");
   db.run("CREATE TABLE goals_to_playPal (goalID TEXT, completed INTEGER)");
+//insert data into the tables
   db.run("INSERT INTO users_to_playPal VALUES ('Nataliya', '123456', 0)");
   db.run("INSERT INTO users_to_playPal VALUES ('Emi', '234567',0)");
   db.run("INSERT INTO users_to_playPal VALUES ('Matthias', '345678',0)");

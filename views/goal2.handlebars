@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
-This page shows Goal 2 of the park where it tells the user to have a picnic with their parents. There is also a button that the parent can click to indicate that the child has completed the goal. This button uses ajax to add 10 points to the user when it's clicked. 
+<!--
+This page shows Goal 2 of the park where it tells the user to have a picnic with their parents. There is also a button that the parent can click to indicate that the child has completed the goal. This button uses ajax to add 10 points to the user when it's clicked.
 -->
 
 <head>
@@ -52,7 +52,6 @@ This page shows Goal 2 of the park where it tells the user to have a picnic with
 			});
 		});
 	</script>
-
 </head>
 
 <body style= "background-color: #d0fcce;">
@@ -63,20 +62,15 @@ This page shows Goal 2 of the park where it tells the user to have a picnic with
   border: none;
   color: black;
   padding: 20px; font-size: 20px;">< Back</button>
-	<div>
 
-        <center>
-<h4 id="show" style="text-align: center"> Have a picnic with your parents</h4><br>
-		<div>
- <img id="picnic" src="picnic.jpg" style="width:70%"></img>
+	<div><center>
+	  <h4 id="show" style="text-align: center">Have a picnic with your parents</h4><br>
+	  <div><img src="picnic.jpg" style="width:70%"></img><br><br><br><br>
+	  <button class="completeStyle" id="addPointsButton">Complete to earn 10 Pts!</button>
+	</center></div>
 
-<br><br><br><br>
-			<button class="completeStyle" id="addPointsButton">Complete to earn 10 Pts!</button>
-		</div>
-        </center>
-		<div id="points"></div>
-
-	</div><br><br><br><br><br><br>
+	<div id="points"></div>
+	<br><br><br><br><br><br>
 
 	<div class="icon-bar">
 		<a href="home"><i class="fa fa-home"></i></a>
@@ -87,7 +81,7 @@ This page shows Goal 2 of the park where it tells the user to have a picnic with
 
 </body>
 <style>
-.completeStyle {
+	.completeStyle {
 		background-color: #C4FAF8;
 		border-radius:10px;
 		border: 1px solid #6ABAC7;
@@ -100,5 +94,4 @@ This page shows Goal 2 of the park where it tells the user to have a picnic with
         padding-left: 4%;
     }
 </style>
-
 </html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
-This page shows Goal 3 of the park where it tells the user to roll on the grass. There is also a button that the parent can click to indicate that the child has completed the goal. This button uses ajax to add 10 points to the user when it's clicked. 
+<!--
+This page shows Goal 3 of the park where it tells the user to roll on the grass. There is also a button that the parent can click to indicate that the child has completed the goal. This button uses ajax to add 10 points to the user when it's clicked.
 -->
 
 <head>
@@ -52,33 +52,27 @@ This page shows Goal 3 of the park where it tells the user to roll on the grass.
 			});
 		});
 	</script>
-
-
 </head>
 
 <body style= "background-color: #d0fcce;">
+
 	<div class="header">
-		<h1>Park: Goal 3</h1>
+	  	<h1>Park: Goal 3</h1>
 	</div>
+
 	<button onclick="goBack()" style= "background-color: #d0fcce; /* Green */
   border: none;
   color: black;
   padding: 20px; font-size: 20px;">< Back</button>
-	<div>
 
-        <center>
-<h4 id="show" style="text-align: center">Roll on the grass</h4><br>
-		<div>
- <img id="rollOnGrass" src="grass.jpg" style="width:80%"></img>
+<div><center>
+  <h4 id="show" style="text-align: center">Roll on the grass</h4><br>
+  <div><img src="grass.jpg" style="width:80%"></img><br><br><br><br>
+  <button class="completeStyle" id="addPointsButton">Complete to earn 10 Pts!</button>
+</center></div>
 
-<br><br><br><br>
-			<button class="completeStyle" id="addPointsButton">Complete to earn 10 Pts!</button>
-		</div>
-        </center>
-		<div id="points"></div>
-
-	</div><br><br><br><br><br><br>
-
+<div id="points"></div>
+<br><br><br><br><br><br>
 
 	<div class="icon-bar">
 		<a href="home"><i class="fa fa-home"></i></a>
@@ -89,7 +83,7 @@ This page shows Goal 3 of the park where it tells the user to roll on the grass.
 
 </body>
 <style>
-.completeStyle {
+	.completeStyle {
 		background-color: #C4FAF8;
 		border-radius:10px;
 		border: 1px solid #6ABAC7;

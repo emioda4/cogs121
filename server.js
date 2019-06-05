@@ -1,4 +1,4 @@
-// This file creates an HTTP server for node.js to run on 
+// This file creates an HTTP server for node.js to run on
 
 const express = require('express');
 const app = express();
@@ -45,7 +45,6 @@ app.use(express.static('views'));
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('playPal.db');
 
-
 //Call to the database that sends the list of all users we have to the front end
 app.get('/users', (req, res) => {
   db.all('SELECT name FROM users_to_playPal', (err, rows) =>{
@@ -55,7 +54,6 @@ app.get('/users', (req, res) => {
     res.send(allUsernames );
   });
 });
-
 
 //Use this library to parse HTTP POST requests
 const bodyParser = require('body-parser');
@@ -84,8 +82,7 @@ app.post('/users', (req, res) => {
   );
 });
 
-
-//This code returns a user based on the userid we are attempting to find
+//This code returns user information based on the userid we are attempting to find
 app.get('/users/:userid', (req, res) => {
   const nameToLookup = req.params.userid; // matches ':userid' above
 
