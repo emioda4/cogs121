@@ -19,13 +19,9 @@ This is the rewards page that you can go to by clicking the rewards icon in the 
   <script type="text/javascript">
   //code to display current number of points when the page loads
 	$(document).ready(() => {
-    // get the current username using session storage property
-		const currentUser = sessionStorage.getItem("currentUser");
-    //url to send request to
-		const myURL = 'users/'+ currentUser;
 	  console.log("Working!");
 	$.ajax({
-	url: myURL,
+	url: '/points',
 	type: 'GET',
 	dataType: 'json',
 	success: (data) => {
