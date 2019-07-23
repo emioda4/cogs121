@@ -13,7 +13,7 @@
 
   "author": "Emi, Matthias, Kristen, Natalia",
   "license": "MIT",
-  "private": true,
+
   "dependencies": {
     "express": "^4.16.4",
     "express3-handlebars": "^0.5.2",
