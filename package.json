@@ -1,11 +1,16 @@
 {
-  "name": "funsearch-v1",
+  "name": "playpal",
   "version": "1.0.0",
-  "description": "Goal Diggers App",
+  "description": "This is a fun kids' game called PlayPal",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+
   "author": "Emi, Matthias, Kristen, Natalia",
   "license": "MIT",
   "private": true,
