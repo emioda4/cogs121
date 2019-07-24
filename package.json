@@ -1,7 +1,7 @@
 {
   "name": "playpal",
   "version": "1.0.0",
-  "description": "This is a fun kids' game called PlayPal",
+  "description": "This is a fun kids game called PlayPal",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

@@ -107,17 +107,17 @@ app.get('/users/:userid', (req, res) => {
 
 //This code retrives the points users have (all users have the same number of points in the current build)
 app.get('/points', (req, res) => {
-	db.all(
+  db.all(
    'SELECT points FROM users_to_playPal',
 
-		(err, rows) => {
-			console.log(rows);
-			if (rows.length > 0) {
+    (err, rows) => {
+      console.log(rows);
+      if (rows.length > 0) {
         res.send(rows[0]);
           } else {
         res.send({});
-		}
-	}
+    }
+  }
   );
 });
 
@@ -222,7 +222,7 @@ app.get('/currentGoals', (req, res) => {
 });
 
 
-// start the server at URL: http://localhost:3000/
-app.listen(3000, () => {
-  console.log('Server started at http://localhost:3000/');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
